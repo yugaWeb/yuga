@@ -1,0 +1,35 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin font-size-clamp($min-font-size, $ideal-font-size, $max-font-size) {
+    font-size: clamp($min-font-size, $ideal-font-size, $max-font-size);
+}
+
+@mixin media-425 {
+    @media (max-width: 425px) {
+        @content;
+    }
+}
+@mixin media-768 {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+@mixin media-940 {
+    @media (max-width: 940px) {
+        @content;
+    }
+}
+@mixin media-1024 {
+    @media (max-width: 1024px) {
+        @content;
+    }
+}
+@mixin media-1280 {
+    @media (max-width: 1280px) {
+        @content;
+    }
+}

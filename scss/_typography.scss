@@ -1,0 +1,26 @@
+body {
+    font-family: "Inter", sans-serif;
+    font-family: "Rufina", serif;
+}
+
+.f-30_20 {
+    @include font-size-clamp($mb-f-1, 2vw, $pc-f-1);
+}
+.f-20_20 {
+    @include font-size-clamp($mb-f-2, 2vw, $pc-f-2);
+}
+.f-20_12 {
+    @include font-size-clamp($mb-f-3, 1.2vw, $pc-f-3);
+}
+.f-18_12 {
+    @include font-size-clamp($mb-f-4, 1.2vw, $pc-f-4);
+}
+.f-16_16 {
+    @include font-size-clamp($mb-f-5, 2vw, $pc-f-5);
+}
+.f-16_12 {
+    @include font-size-clamp($mb-f-6, 1.1vw, $pc-f-6);
+}
+.f-14_12 {
+    @include font-size-clamp($mb-f-7, 2vw, $pc-f-7);
+}
