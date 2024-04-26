@@ -19,7 +19,7 @@
 
         document.getElementsByTagName('head')[0].appendChild(metaTag);
     </script>
-    <title>yuga</title>
+    <title>Yûga</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -39,6 +39,170 @@
         .text35{
             font-size: 0.85em;            
         }
+
+        /* 20240416 */
+        #sacs,#accessoire{
+            cursor: pointer;
+        }
+        .dark_box_bg{
+            z-index: 11;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            opacity: 0.9;
+            display: none;
+        }
+        .dark_box{
+            height: 450px;
+            display: flex;
+            gap: 30px;
+            position: fixed;
+            z-index: 12;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            
+        }
+        .dark_box_img{
+            width: 215px;
+            height: 365px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        .dark_box_img:hover > .dark_box_container{
+            opacity: 1;
+        }
+        .dark_box_img img {
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        #sacs_box .dark_box_img:nth-child(1),#sacs_box .dark_box_img:nth-child(4){
+            align-self: flex-end;    
+        }
+        #sacs_box .dark_box_img:nth-child(2){
+            background-image: linear-gradient(88deg, #BEB2A2, #D5C8B5);
+        }
+        #sacs_box .dark_box_img:nth-child(2) img{
+            transform: scale(1.2);
+            margin-top: 47px;
+        }
+        #sacs_box .dark_box_img:nth-child(4){
+            background-image: linear-gradient(98deg, #CCC6B6, #B6B0A2);
+        }
+        #sacs_box .dark_box_img:nth-child(4) img{
+            margin-top: 34px;
+        }
+        .dark_box_container{
+            opacity: 0;
+            transition: .7s;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .dark_box_text_bg{
+            width: 100%;
+            height: 100%;
+            background-color: #e1e1e1;
+            opacity: 0.6;
+            z-index: 13;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            cursor: pointer;
+        }
+        .dark_box_text{
+            text-align: center;
+            font-size: 2rem;
+            position: absolute;
+            z-index: 14;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%);
+            pointer-events: none;
+            color: #27372a;
+        }
+        #accessoire_box{
+            justify-content: center;
+        }
+        #accessoire_box .dark_box_text{
+            text-wrap: nowrap;
+        }
+        @media screen and (max-width: 980px) {
+            .dark_box {
+                width: 500px;
+            }
+            #sacs_box .dark_box_img{
+                position: absolute;
+                width: 180px    ;
+                height: 180px;
+            }
+            .dark_box_img img{
+                object-fit: fill;
+                
+                
+            }
+            #sacs_box .dark_box_img:nth-child(1){
+                background-image:none;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+            }
+            #sacs_box .dark_box_img:nth-child(2){
+                background-image:none;
+                left: 50%;
+                transform: translateX(-50%) rotate(45deg);
+                top: 0;
+            }
+            #sacs_box .dark_box_img:nth-child(3){
+                background-image:none;
+                left: 50%;
+                transform: translateX(-50%) rotate(45deg);
+                bottom:0;
+            }
+            #sacs_box .dark_box_img:nth-child(4){
+                background-image:none;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+            }
+            #sacs_box .dark_box_img img{
+                transform:scale(1.4) rotate(315deg);
+            }
+            #sacs_box .dark_box_img:nth-child(2) img{
+                transform:scale(1.4) rotate(315deg);
+                margin-top: 0; 
+            }
+            #sacs_box .dark_box_img:nth-child(4) img{
+                margin-top: 0;
+
+            }
+            
+        }
+        @media screen and (max-width: 580px){
+            .dark_box {
+                width: 300px;
+                height: 330px;
+            }
+            #sacs_box .dark_box_img{
+                width: 115px;
+                height: 115px;
+            }
+            #accessoire_box{
+                width: 100%;
+            }
+            #accessoire_box .dark_box_img{
+                width: 165px;
+                height: 245px;
+            } 
+        } 
     </style>
 </head>
 
@@ -249,10 +413,9 @@
                             </div>
                         </div>
                         <div class="window__content">
-                            <h2 class="f-20_20 text-g-d">NOS SACS</h2>
-                            <p class="f-16_16 text-g-l">Nos sacs sont créés par<br>Noliko, fabriqués à la main
-                                au<br>Japon
-                                et sont des exemplaires uniques.</p>
+                            <h2 id="sacs" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS SACS</h2>
+                            <p class="f-16_16 text-g-l">Tous nos sacs sont créés par<br>Noliko, sont fabriqués à la main<br>
+                                au Japon et sont des exemplaires uniques.</p>
                         </div>
                     </div>
                     <div class="window__box">
@@ -270,10 +433,58 @@
                             </div>
                         </div>
                         <div class="window__content">
-                            <h2 class="f-20_20 text-g-d">NOS PETITS ACCESSOIRES</h2>
-                            <p class="f-16_16 text-g-l">Les porte-bijoux brodés, les<br> mouchoirs en double gaze<br>
-                                brodés, les porcelaines...</p>
+                            <h2 id="accessoire" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS PETITS ACCESSOIRES</h2>
+                            <p class="f-16_16 text-g-l">
+                                Les porte-bijoux en soie,<br>fabriqués à la main au Japon.<br>
+                            </p>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dark_box_bg" onclick="closeDarkBox(this);"></div>
+            <div id="sacs_box" class="dark_box">
+                <div id="sacs_item1" class="dark_box_img" onclick="productUrl(this,'KIYOMIZU');">
+                    <img src="./images/product/KIYOMIZU_1.jpg" alt="">
+                    <div class="dark_box_container">
+                        <div class="dark_box_text_bg"></div>
+                        <div class="dark_box_text">清水<br>KIYOMIZU</div>
+                    </div>
+                </div>
+                <div  id="sacs_item2" class="dark_box_img" onclick="productUrl(this,'SHIRAKAWA');">
+                    <img src="./images/product/SHIRAKAWA_1.jpg" alt="">
+                    <div class="dark_box_container">
+                        <div class="dark_box_text_bg"></div>
+                        <div class="dark_box_text">白川<br>SHIRAKAWA</div>
+                    </div>
+                </div>
+                <div  id="sacs_item3" class="dark_box_img" onclick="productUrl(this,'SAGANO');">
+                    <img src="./images/product/SAGANO_1.jpg" alt="">
+                    <div class="dark_box_container">
+                        <div class="dark_box_text_bg"></div>
+                        <div class="dark_box_text">嵯峨野<br>SAGANO</div>    
+                    </div>
+                </div>
+                <div  id="sacs_item4" class="dark_box_img" onclick="productUrl(this,'GION');">
+                    <img src="./images/product/GION_0.jpg" alt="">
+                    <div class="dark_box_container">
+                        <div class="dark_box_text_bg"></div>
+                        <div class="dark_box_text">祇園<br>GION</div>
+                    </div>
+                </div>
+            </div>
+            <div id="accessoire_box" class="dark_box">
+                <div id="accessoire_item1" class="dark_box_img" onclick="productUrl(this,'KOMONOIRE');">
+                    <img src="./images/product/Komono-iré_1.jpg" alt="">
+                    <div class="dark_box_container">
+                        <div class="dark_box_text_bg"></div>
+                        <div class="dark_box_text">Komono-iré</div>
+                    </div>
+                </div>
+                <div  id="accessoire_item2" class="dark_box_img" onclick="productUrl(this,'OMAMORI');">
+                    <img src="./images/product/Omamori-iré_1.jpg" alt="">
+                    <div class="dark_box_container">
+                        <div class="dark_box_text_bg"></div>
+                        <div class="dark_box_text">Omamori-iré</div>
                     </div>
                 </div>
             </div>
@@ -355,6 +566,35 @@
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        const dark_box_bg = document.querySelector(".dark_box_bg");
+        const sacs_box = document.querySelector("#sacs_box"); 
+        const accessoire_box = document.querySelector("#accessoire_box"); 
+
+        function openPopUp(ele){
+            console.log(ele.id);
+            dark_box_bg.style.display = "block";
+            switch(ele.id){
+                case "sacs":
+                sacs_box.style.display = "flex";
+                    break;
+                case "accessoire":
+                accessoire_box.style.display = "flex";
+                    break;
+            }
+        }
+
+        function productUrl(ele,item){
+            location.href  = "product.html?item=" + item;
+        }
+
+        function closeDarkBox(ele){
+            ele.style.display = "none";
+            sacs_box.style.display = "none";
+            accessoire_box.style.display = "none";
+        }
+        
+    </script>
 </body>
 
 </html>
