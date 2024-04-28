@@ -2,6 +2,10 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@font-face {
+  font-family: yujisyukustd;
+  src: url("/font/YUJISYUKUSTD-R-2.OTF") format("opentype");
+ }
 * {
   box-sizing: border-box;
 }
@@ -632,7 +636,9 @@ footer {
 .window__content {
   text-align: center;
 }
-.window__content h2 {
+.window__content h2 {  
+  width: fit-content;
+  margin:auto;
   margin-bottom: 30px;
 }
 .window__content p {

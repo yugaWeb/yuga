@@ -25,6 +25,7 @@
       body {
         opacity: 0;
         transition: 0.3s;
+        overflow: hidden;
       }
       main {
         display: flex;
@@ -53,12 +54,21 @@
       .previous_btn:hover {
         background-image: linear-gradient(90deg, #0000001a, #ffffff);
       }
-      .previous_btn i {
+      
+      /* .previous_btn i {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%);
         font-size: 50px;
+      } */
+      .previous_btn svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%) rotate(90deg);
+        width: 50px;
+        height: 50px;
       }
       
       .proudct_img_container {
@@ -222,7 +232,7 @@
           .then((response) => response.json())
           .then((data) => {
             bag = data;
-            loadData();
+            loadData(bag);
             document.querySelector("body").style.opacity = "1";
           })
           .catch((error) => console.error("Error:", error));
@@ -232,8 +242,17 @@
 
   <body>
     <main>
-      <div class="previous_btn" onclick="history.back();">
-        <i class="fa-solid fa-chevron-left text-g-l"></i>
+      <div class="previous_btn" onclick="goBack();">
+        <!-- <i class="fa-solid fa-chevron-left text-g-l"></i> -->
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+
+          <defs>
+          </defs>
+          <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+            <path d="M 90 23.25 c 0 -0.384 -0.146 -0.768 -0.439 -1.061 c -0.586 -0.586 -1.535 -0.586 -2.121 0 L 45 64.629 L 2.561 22.189 c -0.585 -0.586 -1.536 -0.586 -2.121 0 c -0.586 0.586 -0.586 1.535 0 2.121 l 43.5 43.5 c 0.585 0.586 1.536 0.586 2.121 0 l 43.5 -43.5 C 89.854 24.018 90 23.634 90 23.25 z" 
+                  style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: #445744; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+          </g>
+          </svg>
       </div>
 
       <section class="product_container" style="background-color: #ffffff">
@@ -284,10 +303,22 @@
       let item_icon = document.querySelector("#item_icon");
       let item_icon_m = document.querySelector("#item_icon_m");
 
-      function loadData() {
+      function loadData(bag) {
         let urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has("item")) {
-          let getItem = urlParams.get("item");
+          let getItem = urlParams.get("item");  
+          let chk = 0;
+          
+          Object.keys(bag).forEach((index) => {
+            if (index == getItem){
+              chk ++;
+            }
+          })
+          if (chk == 0){
+            window.location.href = "index.html";
+          }
+
+          console.log(chk);
           Object.entries(bag).forEach((item) => {
             if (getItem == item[0]) {
               d_title.textContent = item[1].title;
@@ -311,6 +342,18 @@
               item_icon_m.src = imgs_path + item[1].icon;
               switch (item[0]) {
                 case "KIYOMIZU":
+                  item_icon.style.width = "15%";
+                  item_icon.style.height = "30%";
+                  item_icon.style.right = "0";
+                  item_icon.style.top = "5%";
+                  item_icon.style.opacity = "0.7";
+
+                  item_icon_m.style.width = "15%";
+                  item_icon_m.style.top = "30px";
+                  item_icon_m.style.right = "25px";
+                  item_icon_m.style.opacity = "0.7";
+                  break;
+                case "SHIRAKAWA":
                   item_icon.style.width = "20%";
                   item_icon.style.height = "40%";
                   item_icon.style.right = "2%";
@@ -322,18 +365,6 @@
                   item_icon_m.style.width = "20%";
                   item_icon_m.style.top = "30px";
                   item_icon_m.style.right = "50px";
-                  item_icon_m.style.opacity = "0.7";
-                  break;
-                case "SHIRAKAWA":
-                  item_icon.style.width = "15%";
-                  item_icon.style.height = "30%";
-                  item_icon.style.right = "0";
-                  item_icon.style.top = "5%";
-                  item_icon.style.opacity = "0.7";
-
-                  item_icon_m.style.width = "15%";
-                  item_icon_m.style.top = "30px";
-                  item_icon_m.style.right = "25px";
                   item_icon_m.style.opacity = "0.7";
                   break;
                 case "SAGANO":
@@ -379,11 +410,12 @@
                   item_icon_m.style.top = "40px";
                   break;
               }
-            }
+            } 
           });
         } else {
           window.location.href = "index.html";
         }
+        
       }
       function changeImg(ele) {
         let change_img = ele.src;
@@ -392,9 +424,9 @@
         main_img.src = change_img;
         ele.src = temp_img;
       }
-      document.addEventListener("DOMContentLoaded", function () {
-          
-      });
+      function goBack(){
+        window.location.href = "index.html";
+      }
     </script>
   </body>
 </html>
