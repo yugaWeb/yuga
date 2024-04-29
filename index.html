@@ -41,6 +41,10 @@
         }
 
         /* 20240416 */
+        @font-face {
+            font-family: yujisyukustd;
+            src: url("/font/YUJISYUKUSTD-R-2.OTF") format("opentype");
+        }
         #sacs,#accessoire{
             cursor: pointer;
         }
@@ -105,20 +109,20 @@
             width: 100%;
         }
 
-        #sacs_box .dark_box_img:nth-child(2),#sacs_box .dark_box_img:nth-child(5){
+        #sacs_box .dark_box_img:nth-child(1),#sacs_box .dark_box_img:nth-child(4){
             align-self: flex-end;    
         }
-        #sacs_box .dark_box_img:nth-child(3){
+        #sacs_box .dark_box_img:nth-child(2){
             background-image: linear-gradient(88deg, #BEB2A2, #D5C8B5);
         }
-        #sacs_box .dark_box_img:nth-child(3) img{
+        #sacs_box .dark_box_img:nth-child(2) img{
             transform: scale(1.2);
             margin-top: 47px;
         }
-        #sacs_box .dark_box_img:nth-child(5){
+        #sacs_box .dark_box_img:nth-child(4){
             background-image: linear-gradient(98deg, #CCC6B6, #B6B0A2);
         }
-        #sacs_box .dark_box_img:nth-child(5) img{
+        #sacs_box .dark_box_img:nth-child(4) img{
             margin-top: 34px;
         }
         .dark_box_container{
@@ -158,24 +162,8 @@
         #accessoire_box .dark_box_text{
             text-wrap: nowrap;
         }
-        .previous_btn {
-        position: relative;
-        cursor: pointer;
-        width: 5%;
-        
-        }
-        .previous_btn:hover {
-            background-image: linear-gradient(90deg, #0000001a, #ffffff);
-        }
-        
-        .previous_btn svg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%) rotate(90deg);
-            width: 50px;
-            height: 50px;
-        }
+
+  
         @media screen and (max-width: 980px) {
             .dark_box {
                 width: 500px;
@@ -188,25 +176,25 @@
             .dark_box_img img{
                 object-fit: fill;
             }
-            #sacs_box .dark_box_img:nth-child(2){
+            #sacs_box .dark_box_img:nth-child(1){
                 background-image:none;
                 left: 0;
                 top: 50%;
                 transform: translateY(-50%) rotate(45deg);
             }
-            #sacs_box .dark_box_img:nth-child(3){
+            #sacs_box .dark_box_img:nth-child(2){
                 background-image:none;
                 left: 50%;
                 transform: translateX(-50%) rotate(45deg);
                 top: 0;
             }
-            #sacs_box .dark_box_img:nth-child(4){
+            #sacs_box .dark_box_img:nth-child(3){
                 background-image:none;
                 left: 50%;
                 transform: translateX(-50%) rotate(45deg);
                 bottom:0;
             }
-            #sacs_box .dark_box_img:nth-child(5){
+            #sacs_box .dark_box_img:nth-child(4){
                 background-image:none;
                 right: 0;
                 top: 50%;
@@ -215,11 +203,11 @@
             #sacs_box .dark_box_img img{
                 transform:scale(1.4) rotate(315deg);
             }
-            #sacs_box .dark_box_img:nth-child(3) img{
+            #sacs_box .dark_box_img:nth-child(2) img{
                 transform:scale(1.4) rotate(315deg);
                 margin-top: 0; 
             }
-            #sacs_box .dark_box_img:nth-child(5) img{
+            #sacs_box .dark_box_img:nth-child(4) img{
                 margin-top: 0;
             }
             .dark_box_img:hover > .dark_box_container{
@@ -412,7 +400,7 @@
             </div>
         </section>
         <section class="container bg-white">
-            <div class="window">
+            <div id="window" class="window">
                 <div class="window__list">
                     <div class="window__box">
                         <div class="window__imgbox">
@@ -484,18 +472,6 @@
             </div>
             <div class="dark_box_bg" onclick="closeDarkBox(this);"></div>
             <div id="sacs_box" class="dark_box">
-                <div class="previous_btn" onclick="closeDarkBoxAll();">
-                    <!-- <i class="fa-solid fa-chevron-left text-g-l"></i> -->
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
-            
-                      <defs>
-                      </defs>
-                      <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
-                        <path d="M 90 23.25 c 0 -0.384 -0.146 -0.768 -0.439 -1.061 c -0.586 -0.586 -1.535 -0.586 -2.121 0 L 45 64.629 L 2.561 22.189 c -0.585 -0.586 -1.536 -0.586 -2.121 0 c -0.586 0.586 -0.586 1.535 0 2.121 l 43.5 43.5 c 0.585 0.586 1.536 0.586 2.121 0 l 43.5 -43.5 C 89.854 24.018 90 23.634 90 23.25 z" 
-                              style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: #445744; fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-                      </g>
-                      </svg>
-                  </div>
                 <div id="sacs_item1" class="dark_box_img" onclick="productUrl(this,'SHIRAKAWA');">
                     <img src="./images/product/SHIRAKAWA_1.jpg" alt="">
                     <div class="dark_box_container">

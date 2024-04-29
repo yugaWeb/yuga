@@ -2,10 +2,6 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@font-face {
-  font-family: yujisyukustd;
-  src: url("/font/YUJISYUKUSTD-R-2.OTF") format("opentype");
- }
 * {
   box-sizing: border-box;
 }
