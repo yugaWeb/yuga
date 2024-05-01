@@ -45,6 +45,15 @@
             font-family: yujisyukustd;
             src: url("/font/YUJISYUKUSTD-R-2.OTF") format("opentype");
         }
+        .window__imgbox--One img{
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+        }
+        .window__imgbox--Two img {
+            width: 120px;
+            height: 70px;
+        }
         #sacs,#accessoire{
             cursor: pointer;
         }
@@ -229,28 +238,62 @@
                 opacity: 0;
             }
             #accessoire_box .dark_box_close{
-                margin-right: 0%;
+                margin-right: 5%;
             }
-            
+            #accessoire_box .dark_box_img{
+                position: absolute;
+                width: 180px;
+                height: 180px;
+            }
+            #accessoire_box .dark_box_img img{
+                transform:scale(1.4) rotate(315deg);
+            }
+            #accessoire_box .dark_box_img:nth-child(1){
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+            }
+            #accessoire_box .dark_box_img:nth-child(2){
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+            }
         }
+        @media screen and (max-width: 940px){
+            .window__imgbox--One img {
+                width: 100%;
+                height: auto;
+            }
+            .window__imgbox--Two img {
+                width: 100%;
+                height: auto;
+                max-height: 95px;
+            }
+        }    
+        @media screen and (max-width: 768px){
+            .window__imgbox--One img {
+                width: 100%;
+                height: auto;
+            }
+            .window__imgbox--Two img {
+                width: 100%;
+                height: auto;
+                max-height: 160px;
+            }
+        }    
         @media screen and (max-width: 580px){
             .dark_box {
                 width: 300px;
                 height: 330px;
             }
-            #sacs_box .dark_box_img{
+            #sacs_box .dark_box_img, #accessoire_box .dark_box_img{
                 width: 115px;
                 height: 115px;
             }
-            #accessoire_box{
+            .window__imgbox--Two img {
                 width: 100%;
-            }
-            #accessoire_box .dark_box_img{
-                width: 165px;
-                height: 245px;
-            } 
-            #accessoire_box .dark_box_close{
-                margin-right: 10%;
+                height: auto;
+                max-height: 115px;
             }
         } 
     </style>
@@ -451,14 +494,14 @@
                     <div class="window__box">
                         <div class="window__imgbox">
                             <div class="window__imgbox--One">
-                                <img src="images/commodity_2.png" alt="">
+                                <img src="images/product/SHIRAKAWA_1.jpg" alt="">
                             </div>
                             <div class="window__imgbox--Two">
                                 <div class="window__imgbox--Two1  ">
-                                    <img src="images/commodity2-1.png" alt="">
+                                    <img src="images/product/KIYOMIZU_1_2.jpg" alt="">
                                 </div>
                                 <div class="window__imgbox--Two2  ">
-                                    <img src="images/commodity2-2.png" alt="">
+                                    <img src="images/product/SAGANO_1_2.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -471,14 +514,14 @@
                     <div class="window__box">
                         <div class="window__imgbox">
                             <div class="window__imgbox--One">
-                                <img src="images/commodity_3.png" alt="">
+                                <img src="images/product/Komono-iré_2_2.jpg" alt="">
                             </div>
                             <div class="window__imgbox--Two">
                                 <div class="window__imgbox--Two1  ">
-                                    <img src="images/commodity3-1.png" alt="">
+                                    <img src="images/product/Omamori-iré_2.jpg" alt="">
                                 </div>
                                 <div class="window__imgbox--Two2  ">
-                                    <img src="images/commodity3-2.png" alt="">
+                                    <img src="images/product/Omamori-iré_3.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -623,10 +666,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script>
+        const sacs_div = document.querySelector("#sacs");
+        const accessoire_div = document.querySelector("#accessoire");
         const dark_box_bg = document.querySelector(".dark_box_bg");
         const sacs_box = document.querySelector("#sacs_box"); 
         const accessoire_box = document.querySelector("#accessoire_box"); 
+        /*
+        window.addEventListener("DOMContentLoaded",function(){
+            if (window.innerWidth <= 940){
+                document.addEventListener("scroll", function (e) {
+                    console.log(window.scrollY);
 
+                })
+                
+
+            }
+        })
+        */
         function openPopUp(ele){
             dark_box_bg.style.display = "block";
             switch(ele.id){
