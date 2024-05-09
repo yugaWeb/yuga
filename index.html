@@ -45,6 +45,17 @@
             font-family: yujisyukustd;
             src: url("/font/YUJISYUKUSTD-R-2.OTF") format("opentype");
         }
+        @font-face {
+            font-family: writeFont;
+            src: url("/font/write_font.TTF");
+        }
+        .write_text{
+            font-family: "writeFont", sans-serif;
+            font-size: clamp(18px, 2vw, 26px);
+            line-height: 38px !important;
+            margin-bottom: 38px;
+            text-align: left;
+        }
         .window__imgbox--One img{
             width: 250px;
             height: 250px;
@@ -52,7 +63,7 @@
         }
         .window__imgbox--Two img {
             width: 120px;
-            height: 70px;
+            height: 80px;
         }
         #sacs,#accessoire{
             cursor: pointer;
@@ -71,7 +82,8 @@
 
         }
         .dark_box{
-            height: 450px;
+            height: 320px;
+            width: 930px;
             display: flex;
             gap: 30px;
             position: fixed;
@@ -83,8 +95,8 @@
             
         }
         .dark_box_img{
-            width: 215px;
-            height: 365px;
+            /* width: 215px; */
+            height: 240px;
             border-radius: 20px;
             overflow: hidden;
             position: relative;
@@ -94,8 +106,17 @@
         }
         .dark_box_img img {
             width: 100%;
-            height: 100%;
             pointer-events: none;
+            object-fit: cover;
+        }
+        #accessoire_box .dark_box_img{
+            width: 230px;
+            height: 230px;
+        }
+        #accessoire_box .dark_box_img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         #sacs,#accessoire{
             position: relative;
@@ -121,18 +142,31 @@
         #sacs_box .dark_box_img:nth-child(1),#sacs_box .dark_box_img:nth-child(4){
             align-self: flex-end;    
         }
+        #sacs_box .dark_box_img:nth-child(1){
+            background-image: linear-gradient(88deg, #BEB2A2, #D5C8B5);
+        }
         #sacs_box .dark_box_img:nth-child(2){
             background-image: linear-gradient(88deg, #BEB2A2, #D5C8B5);
         }
-        #sacs_box .dark_box_img:nth-child(2) img{
-            transform: scale(1.2);
-            margin-top: 47px;
-        }
+
         #sacs_box .dark_box_img:nth-child(4){
-            background-image: linear-gradient(98deg, #CCC6B6, #B6B0A2);
+            background-image: linear-gradient(75deg, #CCC6B6, #B6B0A2);
+        }
+        #sacs_box .dark_box_img:nth-child(1) img{
+            transform: scale(1.2);
+        }
+        #sacs_box .dark_box_img:nth-child(2) img{
+            transform: scale(1.1);
+            margin-top: 15px;
+        }
+        #sacs_box .dark_box_img:nth-child(3) img{
+            margin-top: -18px;
         }
         #sacs_box .dark_box_img:nth-child(4) img{
-            margin-top: 34px;
+            margin-top: 15px;
+        }
+        .sacs_small2 {
+            object-position: 0 36%;
         }
         .dark_box_container{
             opacity: 0;
@@ -186,20 +220,23 @@
         #accessoire_box .dark_box_close{
             top: -60px;
             right: -30px;
-            margin-right: -15%;
+            margin-right: 18%;
         }
         @media screen and (max-width: 980px) {
             .dark_box {
                 width: 500px;
+                height: 470px;
             }
             #sacs_box .dark_box_img{
                 position: absolute;
-                width: 180px    ;
-                height: 180px;
+                width: 185px;
+                height: 185px;
             }
+            /*
             .dark_box_img img{
                 object-fit: fill;
             }
+            */
             #sacs_box .dark_box_img:nth-child(1){
                 background-image:none;
                 left: 0;
@@ -225,20 +262,24 @@
                 transform: translateY(-50%) rotate(45deg);
             }
             #sacs_box .dark_box_img img{
-                transform:scale(1.4) rotate(315deg);
+                transform: rotate(-45deg) translate(25px, 0px);
             }
-            #sacs_box .dark_box_img:nth-child(2) img{
-                transform:scale(1.4) rotate(315deg);
+            #sacs_box .dark_box_img:nth-child(1) img {
+                transform: scale(1.2) rotate(-45deg) translate(25px, 0px);
+            }
+            #sacs_box .dark_box_img:nth-child(2) img, #sacs_box .dark_box_img:nth-child(4) img{
                 margin-top: 0; 
             }
-            #sacs_box .dark_box_img:nth-child(4) img{
-                margin-top: 0;
+            #sacs_box .dark_box_img:nth-child(2) img{
+                transform:scale(1.4) rotate(-45deg) translate(25px, 0px);
+                
             }
             .dark_box_img:hover > .dark_box_container{
                 opacity: 0;
             }
             #accessoire_box .dark_box_close{
                 margin-right: 5%;
+                top: 0;
             }
             #accessoire_box .dark_box_img{
                 position: absolute;
@@ -314,8 +355,11 @@
         <section class="container">
             <div class="title">
                 <div class="title__content">
-                    <img class="img-pc" src="images/title.png" alt="">
-                    <img class="img-mb" src="images/title_mobil.png" alt="">
+                    <!-- <img class="img-pc" src="images/title.png" alt=""> -->
+                    <p class="write_text text-g-d">優雅、それは古都である京都の文化の特徴であり、日本の伝統です。<br>
+                       優雅という言葉の響きそのものも優雅です。
+                    </p>
+                    <!-- <img class="img-mb" src="images/title_mobil.png" alt=""> -->
                     <p class="f-16_12 text-g-d">L’élégance est une caractéristique de la culture de Kyôto,<br class="br-mb">
                         l’ancienne capitale du Japon et constitue une tradition japonaise.<br class="br-mb"> L’élégance se traduit par « Yûga » en japonais. <br> La sonorité du mot &quot;Yûga&quot; est elle-même élégante. </p>
                 </div>
@@ -463,6 +507,48 @@
         <section class="container bg-white">
             <div id="window" class="window">
                 <div class="window__list">
+
+                    <div class="window__box">
+                        <div class="window__imgbox">
+                            <div class="window__imgbox--One">
+                                <img src="images/product/SHIRAKAWA_1.jpg" alt="">
+                            </div>
+                            <div class="window__imgbox--Two">
+                                <div class="window__imgbox--Two1">
+                                    <img src="images/product/KIYOMIZU_small.jpg" alt="">
+                                </div>
+                                <div class="window__imgbox--Two2">
+                                    <img class="sacs_small2" src="images/product/SAGANO_small.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="window__content">
+                            <h2 id="sacs" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS SACS</h2>
+                            <p class="f-16_16 text-g-l">Tous nos sacs sont créés par<br>Noliko, sont fabriqués à la main<br>
+                                au Japon et sont des exemplaires uniques.</p>
+                        </div>
+                    </div>
+                    <div class="window__box">
+                        <div class="window__imgbox">
+                            <div class="window__imgbox--One">
+                                <img src="images/product/Omamori-iré_2_2.jpg" alt="">
+                            </div>
+                            <div class="window__imgbox--Two">
+                                <div class="window__imgbox--Two1  ">
+                                    <img src="images/product/Komono-iré_2_fill.jpg" alt="">
+                                </div>
+                                <div class="window__imgbox--Two2">
+                                    <img src="images/product/Komono-iré_3.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="window__content">
+                            <h2 id="accessoire" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS PORTE-BIJOUX</h2>
+                            <p class="f-16_16 text-g-l">
+                                Les porte-bijoux en soie,<br>fabriqués à la main au Japon <br>et sont des exemplaires uniques.<br>
+                            </p>
+                        </div>
+                    </div>
                     <div class="window__box">
                         <div class="window__imgbox">
                             <div class="window__imgbox--One">
@@ -486,47 +572,6 @@
                             <p class="f-16_16 text-g-l">Longueur entre <span class="change1">1</span>30 et <span class="change1">1</span>90cm<br>
                                 Largeur entre <span class="change1">1</span>5 et 35cm<br>
                                 Poids entre 40 et <span class="change1">1</span>05g</p>
-                        </div>
-                    </div>
-                    <div class="window__box">
-                        <div class="window__imgbox">
-                            <div class="window__imgbox--One">
-                                <img src="images/product/SHIRAKAWA_1.jpg" alt="">
-                            </div>
-                            <div class="window__imgbox--Two">
-                                <div class="window__imgbox--Two1  ">
-                                    <img src="images/product/KIYOMIZU_1_2.jpg" alt="">
-                                </div>
-                                <div class="window__imgbox--Two2  ">
-                                    <img src="images/product/SAGANO_1_2.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="window__content">
-                            <h2 id="sacs" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS SACS</h2>
-                            <p class="f-16_16 text-g-l">Tous nos sacs sont créés par<br>Noliko, sont fabriqués à la main<br>
-                                au Japon et sont des exemplaires uniques.</p>
-                        </div>
-                    </div>
-                    <div class="window__box">
-                        <div class="window__imgbox">
-                            <div class="window__imgbox--One">
-                                <img src="images/product/Komono-iré_2_2.jpg" alt="">
-                            </div>
-                            <div class="window__imgbox--Two">
-                                <div class="window__imgbox--Two1  ">
-                                    <img src="images/product/Omamori-iré_2.jpg" alt="">
-                                </div>
-                                <div class="window__imgbox--Two2  ">
-                                    <img src="images/product/Omamori-iré_3.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="window__content">
-                            <h2 id="accessoire" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS PORTE-BIJOUX</h2>
-                            <p class="f-16_16 text-g-l">
-                                Les porte-bijoux en soie,<br>fabriqués à la main au Japon <br>et sont des exemplaires uniques.<br>
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -570,19 +615,36 @@
                     <img src="./images/product/Komono-iré_1.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text">Komono-iré</div>
+                        <div class="dark_box_text">御守入れ<br>Komono-iré</div>
                     </div>
                 </div>
                 <div  id="accessoire_item2" class="dark_box_img" onclick="productUrl(this,'OMAMORI');">
                     <img src="./images/product/Omamori-iré_1.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text">Omamori-iré</div>
+                        <div class="dark_box_text">小物入れ<br>Omamori-iré</div>
                     </div>
                 </div>
                 <div class="dark_box_close" onclick="closeDarkBoxAll();">
                     <img src="./images/x-mark.png" alt="">
                 </div>
+            </div>
+        </section>
+        <section class="container-full">
+            <div class="kv_2">
+                <img src="images/kv_teacher.png" alt="">
+            </div>
+        </section>
+        <section class="container-paddingR">
+            <div class="explain" style="display: block;">
+                <h2 class="f-30_20 text-g-d" style="margin-bottom: 38px;">NOS CRÉATIONS</h2>    
+                <p class="write_text text-g-d">
+                    日本の伝統的な染め、織り、刺繍、絞りなどの技術の正絹生地でバッグを作りました。<br>
+                    上品で使い勝手が良く、軽く優しい手触りです。
+                </p>
+                <p class="f-16_12 text-g-d">
+                    « Un sac en tissu de pure soie utilisant des techniques traditionnelles japonaises telles que la teinture, le tissage, la broderie et la teinture par nouage. Élégant et agréable à utiliser, léger et doux au toucher. »  Noliko
+                </p>
             </div>
         </section>
         <section class="container-full">
@@ -668,18 +730,29 @@
         const dark_box_bg = document.querySelector(".dark_box_bg");
         const sacs_box = document.querySelector("#sacs_box"); 
         const accessoire_box = document.querySelector("#accessoire_box"); 
-        /*
-        window.addEventListener("DOMContentLoaded",function(){
-            if (window.innerWidth <= 940){
-                document.addEventListener("scroll", function (e) {
-                    console.log(window.scrollY);
+        const window_area = document.querySelector("#window"); 
 
-                })
-                
+        window.addEventListener("load", function(){
 
+            let urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has("target")) {
+                dark_box_bg.style.display = "block";
+                switch(urlParams.get("target")){
+                    case "KIYOMIZU":
+                    case "SHIRAKAWA":
+                    case "SAGANO":
+                    case "GION":
+                        sacs_box.style.display = "flex";
+                        break;
+                    case "KOMONOIRE":
+                    case "OMAMORI":
+                        accessoire_box.style.display = "flex";
+                        break;
+                }
+                window_area.scrollIntoView({ behavior: 'auto' });
             }
-        })
-        */
+            
+        });
         function openPopUp(ele){
             dark_box_bg.style.display = "block";
             switch(ele.id){

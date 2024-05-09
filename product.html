@@ -149,7 +149,11 @@
         width: 20%;
         position: absolute;
       }
-
+      @media screen and (max-width: 1400px) {
+        .proudct_datail_title {
+          font-size:36px;            
+        }
+      }
       @media screen and (max-width: 1080px) {
         .product {
           padding: 50px 0px 60px 0;
@@ -210,10 +214,18 @@
           display: block;
         }
       }
-      @media screen and (max-width: 480px) {
+      @media screen and (max-width: 568px) {
+        .proudct_datail_title{
+          font-size: 24px;
+        }
+        .proudct_datail_price {
+          font-size: 18px;
+        }
         #item_icon_m {
           display: none;
         }
+      }
+      @media screen and (max-width: 480px) {     
         .previous_btn i {
           padding-left: 15px;
         }
@@ -330,9 +342,10 @@
       let small_imgs = document.querySelectorAll(".proudct_imgs img");
       let item_icon = document.querySelector("#item_icon");
       let item_icon_m = document.querySelector("#item_icon_m");
+      let urlParams = new URLSearchParams(window.location.search);
 
       function loadData(bag) {
-        let urlParams = new URLSearchParams(window.location.search);
+        //let urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has("item")) {
           let getItem = urlParams.get("item");
           let chk = 0;
@@ -346,7 +359,6 @@
             window.location.href = "index.html";
           }
 
-          console.log(chk);
           Object.entries(bag).forEach((item) => {
             if (getItem == item[0]) {
               d_title.textContent = item[1].title;
@@ -418,10 +430,8 @@
                   item_icon_m.style.top = "40px";
                   break;
                 case "KOMONOIRE":
-                  item_icon.style.width = "20%";
-                  item_icon.style.height = "40%";
-                  item_icon.style.right = "-5%";
-                  item_icon.style.top = "-3%";
+                  item_icon.style.right = "4%";
+                  item_icon.style.top = "10%";
 
                   item_icon_m.style.width = "15%";
                   item_icon_m.style.right = "25px";
@@ -452,7 +462,9 @@
         ele.src = temp_img;
       }
       function goBack() {
-        window.location.href = "index.html#window";
+        if (urlParams.has("item")) {
+          window.location.href = "index.html?target=" + urlParams.get("item");
+        }
       }
     </script>
   </body>
