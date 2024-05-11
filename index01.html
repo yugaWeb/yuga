@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        var clientWidth = screen.width;
+
+        var metaTag = document.createElement('meta');
+        metaTag.name = "viewport";
+
+        if (clientWidth <= 376) {
+            metaTag.content = "width=376";
+        } else {
+            metaTag.content = "width=device-width, initial-scale=1.0";
+        }
+
+        document.getElementsByTagName('head')[0].appendChild(metaTag);
+    </script>
+    <title>Yûga</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Rufina:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* loadinig */
+
+        .lds-ring,
+        .lds-ring div {
+            box-sizing: border-box;
+        }
+
+        .lds-ring {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+
+        }
+
+        .lds-ring div {
+            box-sizing: border-box;
+            display: block;
+            position: fixed;
+            z-index: 9999;
+            top: 48%;
+            left: 48%;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border: 8px solid currentColor;
+            border-radius: 50%;
+            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            border-color: currentColor transparent transparent transparent;
+
+        }
+
+        .lds-ring div:nth-child(1) {
+            animation-delay: -0.45s;
+        }
+
+        .lds-ring div:nth-child(2) {
+            animation-delay: -0.3s;
+        }
+
+        .lds-ring div:nth-child(3) {
+            animation-delay: -0.15s;
+        }
+
+        @keyframes lds-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .loading-bg {
+            position: fixed;
+            background-color: rgb(0, 0, 0);
+            z-index: 9998;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0;
+            opacity: 0.95;
+        }
+
+        .loading-status {
+            display: block;
+        }
+
+        /* 20240307 修改 */
+        .change1 {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .explain__right p:nth-child(2) {
+            margin-top: 0;
+        }
+
+        /* 20240318 修改*/
+        .text35 {
+            font-size: 0.85em;
+        }
+
+        /* 20240416 */
+        @font-face {
+            font-family: yujisyukustd;
+            src: url("font/YUJISYUKUSTD-R-2.OTF") format("opentype");
+        }
+
+        @font-face {
+            font-family: writeFont;
+            src: url("font/write_font.TTF");
+        }
+
+        .subtitle_text {
+            font-family: "writeFont", sans-serif;
+            margin-bottom: 60px;
+            margin-right: auto;
+        }
+
+        .write_text {
+            font-family: "writeFont", sans-serif;
+            font-size: clamp(18px, 2vw, 26px);
+            line-height: 38px !important;
+            margin-bottom: 38px;
+            text-align: left;
+        }
+
+        .window__imgbox--One img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .window__imgbox--Two img {
+            width: 120px;
+            height: 100px;
+        }
+
+        #sacs,
+        #accessoire {
+            cursor: pointer;
+        }
+
+        .dark_box_bg {
+            z-index: 11;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            opacity: 0.9;
+            display: none;
+
+        }
+
+        .dark_box {
+            height: 320px;
+            width: 930px;
+            display: flex;
+            gap: 30px;
+            position: fixed;
+            z-index: 12;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+
+        }
+
+        .dark_box_img {
+            width: 200px;
+            height: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dark_box_img:hover>.dark_box_container {
+            opacity: 1;
+        }
+
+        .dark_box_img img {
+            width: 100%;
+            pointer-events: none;
+            object-fit: cover;
+        }
+
+        #accessoire_box .dark_box_img {
+            width: 230px;
+            height: 230px;
+        }
+
+        #accessoire_box .dark_box_img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #sacs,
+        #accessoire {
+            position: relative;
+        }
+
+        #sacs::after,
+        #accessoire::after {
+            width: 100%;
+        }
+
+        #sacs::after,
+        #accessoire::after {
+            content: "";
+            display: block;
+            border-bottom: 1px solid #445744;
+            height: 1px;
+            width: 0%;
+            position: absolute;
+            z-index: 2;
+            transition: .4s;
+        }
+
+        .window__content:hover #sacs::after,
+        .window__content:hover #accessoire::after {
+            width: 100%;
+        }
+
+        #sacs_box .dark_box_img:nth-child(1),
+        #sacs_box .dark_box_img:nth-child(4) {
+            align-self: flex-end;
+        }
+
+        #sacs_box .dark_box_img:nth-child(1) img,
+        #sacs_box .dark_box_img:nth-child(2) img,
+        #sacs_box .dark_box_img:nth-child(4) img {
+            margin-top: -15px;
+        }
+
+        #sacs_box .dark_box_img:nth-child(3) {
+            background-image: linear-gradient(75deg, #DAD3CB, #C2BEB3)
+        }
+
+        .sacs_small2 {
+            object-position: 0 36%;
+        }
+
+        .dark_box_container {
+            opacity: 0;
+            transition: .7s;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .dark_box_text_bg {
+            width: 100%;
+            height: 100%;
+            background-color: #e1e1e1;
+            opacity: 0.6;
+            z-index: 13;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%);
+            cursor: pointer;
+        }
+
+        .dark_box_text {
+            text-align: center;
+            font-size: 1.8rem;
+            position: absolute;
+            z-index: 14;
+            top: 38%;
+            left: 50%;
+            transform: translate(-50%);
+            pointer-events: none;
+            color: #27372a;
+            font-family: "yujisyukustd", sans-serif;
+        }
+
+        #accessoire_box {
+            justify-content: center;
+        }
+
+        #accessoire_box .dark_box_text {
+            text-wrap: nowrap;
+        }
+
+        .dark_box_close {
+            cursor: pointer;
+            position: absolute;
+
+        }
+
+        .dark_box_close img {
+            width: 100%;
+        }
+
+        #sacs_box .dark_box_close {
+            top: -50px;
+            right: 0;
+        }
+
+        #accessoire_box .dark_box_close {
+            top: -60px;
+            right: -30px;
+            margin-right: 18%;
+        }
+
+        .person1 {
+            flex-grow: 1;
+        }
+
+        @media screen and (max-width: 980px) {
+            .dark_box {
+                width: 550px;
+                height: 550px;
+            }
+
+            #sacs_box .dark_box_img {
+                position: absolute;
+                width: 212px;
+                height: 212px;
+            }
+
+            #sacs_box .dark_box_img:nth-child(1) {
+                background-image: none;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+            }
+
+            #sacs_box .dark_box_img:nth-child(2) {
+                background-image: none;
+                left: 50%;
+                transform: translateX(-50%) rotate(45deg);
+                top: 0;
+            }
+
+            #sacs_box .dark_box_img:nth-child(3) {
+                background-image: none;
+                left: 50%;
+                transform: translateX(-50%) rotate(45deg);
+                bottom: 0;
+            }
+
+            #sacs_box .dark_box_img:nth-child(4) {
+                background-image: none;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+            }
+
+            #sacs_box .dark_box_img:nth-child(1) img,
+            #sacs_box .dark_box_img:nth-child(2) img,
+            #sacs_box .dark_box_img:nth-child(4) img {
+                margin-top: 0;
+            }
+
+            #sacs_box .dark_box_img:nth-child(1) img {
+                transform: scale(1.4) rotate(-45deg) translate(15px, -35px);
+            }
+
+            #sacs_box .dark_box_img:nth-child(2) img {
+                transform: scale(1.4) rotate(-45deg) translate(13px, -25px);
+            }
+
+            #sacs_box .dark_box_img:nth-child(3) img {
+                transform: scale(1.4) rotate(-45deg) translate(20px, -13px);
+            }
+
+            #sacs_box .dark_box_img:nth-child(4) img {
+                transform: scale(1.4) rotate(-45deg) translate(23px, -45px);
+            }
+
+            .dark_box_img:hover>.dark_box_container {
+                opacity: 0;
+            }
+
+            #accessoire_box .dark_box_close {
+                margin-right: 5%;
+                top: 0;
+            }
+
+            #accessoire_box .dark_box_img {
+                position: absolute;
+                width: 212px;
+                height: 212px;
+            }
+
+            #accessoire_box .dark_box_img img {
+                transform: scale(1.33) rotate(315deg);
+            }
+
+            #accessoire_box .dark_box_img:nth-child(1) {
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+            }
+
+            #accessoire_box .dark_box_img:nth-child(2) {
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+            }
+        }
+
+        @media screen and (max-width: 940px) {
+            .window__imgbox--One img {
+                width: 100%;
+                height: auto;
+            }
+
+            .window__imgbox--Two img {
+                width: 100%;
+                height: auto;
+                max-height: 95px;
+            }
+
+            .subtitle_text {
+                margin-left: auto;
+                text-align: center !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .window__imgbox--One img {
+                width: 100%;
+                height: auto;
+            }
+
+            .window__imgbox--Two img {
+                width: 100%;
+                height: auto;
+                max-height: 160px;
+            }
+
+            .kv_2 img {
+                transform: translateX(2.8%) scale(0.6) translateY(-190px);
+            }
+        }
+
+        @media screen and (max-width: 580px) {
+            .dark_box {
+                width: 300px;
+                height: 330px;
+            }
+
+            #sacs_box .dark_box_img,
+            #accessoire_box .dark_box_img {
+                width: 115px;
+                height: 115px;
+            }
+
+            .window__imgbox--Two img {
+                width: 100%;
+                height: auto;
+                max-height: 115px;
+            }
+
+            #sacs_box .dark_box_img:nth-child(1) img {
+                transform: scale(1.4) rotate(-45deg) translate(7px, -18px);
+            }
+
+            #sacs_box .dark_box_img:nth-child(2) img {
+                transform: scale(1.4) rotate(-45deg) translate(5px, -15px);
+            }
+
+            #sacs_box .dark_box_img:nth-child(3) img {
+                transform: scale(1.4) rotate(-45deg) translate(11px, -6px);
+            }
+
+            #sacs_box .dark_box_img:nth-child(4) img {
+                transform: scale(1.4) rotate(-45deg) translate(13px, -26px)
+            }
+        }
+
+        @media screen and (max-width: 450px) {
+            .person1 {
+                margin-right: 40%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loadbox loading-bg loading-status"></div>
+    <div class="loadbox lds-ring loading-status">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <main>
+        <section class="container-full">
+            <div class="kv">
+                <img src="images/logo.png" alt="">
+                <img src="images/logo_slogn.png" alt="">
+            </div>
+            <div class="kv_mb">
+                <img src="images/logo.png" alt="">
+                <img src="images/logo_slogn.png" alt="">
+            </div>
+        </section>
+        <section class="container">
+            <div class="title">
+                <div class="title__content">
+                    <!-- <img class="img-pc" src="images/title.png" alt=""> -->
+                    <p class="write_text text-g-d">優雅、それは古都である京都の文化の特徴であり、日本の伝統です。<br>
+                        優雅という言葉の響きそのものも優雅です。
+                    </p>
+                    <!-- <img class="img-mb" src="images/title_mobil.png" alt=""> -->
+                    <p style="width: 100%;" class="f-16_12 text-g-d">L’élégance est une caractéristique de la culture de
+                        Kyôto,<br class="br-mb">
+                        l’ancienne capitale du Japon et constitue une tradition japonaise.<br class="br-mb"> L’élégance
+                        se traduit par <span style="text-wrap: nowrap;">« Yûga »</span> en japonais. <br class="br-mb">
+                        La sonorité du mot &quot;Yûga&quot; est elle-même élégante. </p>
+                </div>
+            </div>
+        </section>
+        <section class="container">
+            <div class="introduce">
+
+                <div class="introduce__box">
+                    <div class="introduce__boxContent">
+                        <div class="introduce__boxContent--center">
+                            <h2 class="f-30_20 text-g-d">NOTRE HISTOIRE</h2>
+                            <!-- <img src="images/subtitle_1.png" alt=""> -->
+                            <p class="text-g-l subtitle_text">私たちについて</p>
+                            <div class="introduce__boxContent--mbimg">
+                                <img src="images/introduce_mb1.png" alt="">
+                            </div>
+                            <p class="f-20_12 text-g-d  br-mb ">
+                                Yûga a été fondée par deux Japonaises, Noliko et Maliko,<br>
+                                qui souhaitaient faire découvrir l’élégance et la tradition<br>
+                                japonaises en France, et Benoît, un Français qui a étudié<br>
+                                le japonais et beaucoup travaillé avec le Japon.<br>
+                            </p>
+                            <p class="f-20_12 text-g-d br-pc">
+                                Yûga a été fondée par deux<br>
+                                Japonaises, Noliko et Maliko,<br class="br-pc">
+                                qui souhaitaient faire découvrir<br>
+                                l’élégance et la tradition<br>
+                                japonaises en France, et Benoît,<br>
+                                un Français qui a étudié le<br>
+                                japonais et qui a aussi beaucoup<br>
+                                travaillé avec le Japon.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="introduce__boxImg">
+                        <div class="introduce__boxImg--set">
+                            <img src="images/introduce_01.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="introduce__box introduce__boxflex">
+                    <div class="introduce__boxContent">
+                        <div class="introduce__boxContent--center">
+
+                            <div class="introduce__boxContent--mbimg">
+                                <img src="images/introduce_mb2.png" alt="">
+                            </div>
+                            <p class="f-20_12 text-g-d  br-mb ">
+                                Tous les produits Yûga sont fabriqués à la main à Kyôto.<br>
+                                Kyôto est l’ancienne capitale du Japon et conserve des<br>
+                                traditions remontant au VIIIe siècle.<br>
+                            </p>
+                            <p class="f-20_12 text-g-d br-pc">
+                                Tous les produits Yûga sont<br>
+                                fabriqués à la main à Kyôto.<br>
+                                Kyôto est l’ancienne capitale du<br>
+                                Japon et conserve des traditions<br>
+                                remontant au VIIIe siècle.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="introduce__boxImg">
+                        <div class="introduce__boxImg--set">
+                            <img src="images/introduce_02.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="introduce__box">
+                    <div class="introduce__boxContent">
+                        <div class="introduce__boxContent--center">
+                            <div class="introduce__boxContent--mbimg">
+                                <img src="images/introduce_mb3.png" alt="">
+                            </div>
+                            <p class="f-20_12 text-g-d br-mb">
+                                Les foulards de Yûga sont conçus à partir d’un tissu<br>
+                                traditionnel en pure soie de haute qualité de Kyôto.<br>
+                                Au Japon, on l’appelle obiage, phonétiquement <br>
+                                « o bi a gué ». L’obiage sert à monter et à fixer l’obi,<br>
+                                la ceinture d’un kimono.<br>
+                            </p>
+                            <p class="f-20_12 text-g-d br-pc">
+                                Le foulard de Yûga est conçue<br>
+                                à partir d’un tissu traditionnel en<br>
+                                pure soie de haute qualité de Kyôto.<br>
+                                Au Japon, on l’appelle obiage,<br>
+                                phonétiquement « o bi a gué ».<br>
+                                L’obiage sert à monter et à fixer<br>
+                                l’obi, la ceinture d’un kimono.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="introduce__boxImg">
+                        <div class="introduce__boxImg--set">
+                            <img src="images/introduce_03.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="introduce__box introduce__boxflex">
+                    <div class="introduce__boxContent">
+                        <div class="introduce__boxContent--center">
+
+                            <div class="introduce__boxContent--mbimg">
+                                <img src="images/introduce_mb4.png" alt="">
+                            </div>
+                            <p class="f-20_12 text-g-d br-mb">
+                                Bien qu’il s’agisse d’une œuvre d’art merveilleuse qui<br>
+                                a pris du temps, elle est cachée par l’obi et seule une<br>
+                                partie en est visible. Nous avons donc eu envie de<br>
+                                l’utiliser comme foulard ou comme matériau pour<br>
+                                des sacs, afin de mettre en valeur sa beauté sous un<br>
+                                angle différent, qui s’adapte aussi aux habitudes<br>
+                                vestimentaires européennes.<br>
+                            </p>
+                            <p class="f-20_12 text-g-d br-pc">
+                                Bien qu’il s’agisse d’une œuvre<br>
+                                d’art merveilleuse qui a pris du<br>
+                                temps, elle est cachée par l’obi<br>
+                                et seule une partie en est visible.<br>
+                                Nous avons donc eu envie de<br>
+                                l’utiliser comme foulard ou<br>
+                                comme matériau pour des sacs,<br>
+                                afin de mettre en valeur sa beauté<br>
+                                sous un angle différent, qui<br>
+                                s’adapte aussi aux habitudes<br>
+                                vestimentaires européennes.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="introduce__boxImg">
+                        <div class="introduce__boxImg--set">
+                            <img src="images/introduce_04.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+
+                <img class="introduce__bg" src="images/tree_1.png" alt="">
+                <img class="introduce__bg2" src="images/tree_2.png" alt="">
+            </div>
+            </div>
+        </section>
+        <section class="container bg-white">
+            <div id="window" class="window">
+                <div class="window__list">
+
+                    <div class="window__box">
+                        <div class="window__imgbox">
+                            <div class="window__imgbox--One">
+                                <img src="images/product/SHIRAKAWA_1.jpg" alt="">
+                            </div>
+                            <div class="window__imgbox--Two">
+                                <div class="window__imgbox--Two1">
+                                    <img src="images/product/KIYOMIZU_small.jpg" alt="">
+                                </div>
+                                <div class="window__imgbox--Two2">
+                                    <img class="sacs_small2" src="images/product/SAGANO_small.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="window__content">
+                            <h2 id="sacs" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS SACS</h2>
+                            <p class="f-16_16 text-g-l">Tous nos sacs sont créés par<br>Noliko, sont fabriqués à la
+                                main<br>
+                                au Japon et sont des exemplaires uniques.</p>
+                        </div>
+                    </div>
+                    <div class="window__box">
+                        <div class="window__imgbox">
+                            <div class="window__imgbox--One">
+                                <img src="images/product/Omamori-iré_2_2.jpg" alt="">
+                            </div>
+                            <div class="window__imgbox--Two">
+                                <div class="window__imgbox--Two1  ">
+                                    <img src="images/product/Komono-iré_2_fill.jpg" alt="">
+                                </div>
+                                <div class="window__imgbox--Two2">
+                                    <img src="images/product/Komono-iré_3.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="window__content">
+                            <h2 id="accessoire" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS PORTE-BIJOUX</h2>
+                            <p class="f-16_16 text-g-l">
+                                Les porte-bijoux en soie,<br>fabriqués à la main au Japon <br>et sont des exemplaires
+                                uniques.<br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="window__box">
+                        <div class="window__imgbox">
+                            <div class="window__imgbox--One">
+                                <img src="images/commodity_1.png" alt="">
+                            </div>
+                            <div class="window__imgbox--Two">
+                                <div class="window__imgbox--Two1 imgHover ">
+                                    <img src="images/commodity1-1.png" alt="">
+                                    <p class="f-16_16 ">Kyô-Yûzen</p>
+                                    <span class="f-20_20 text-g-l mb-text">Kyô-Yûzen</span>
+                                </div>
+                                <div class="window__imgbox--Two2 imgHover ">
+                                    <img src="images/commodity1-2.png" alt="">
+                                    <p class="f-16_16 ">Shibori-zomé</p>
+                                    <span class="f-20_20 text-g-l mb-text">Shibori-zomé</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="window__content">
+                            <h2 class="f-20_20 text-g-d">NOS FOULARDS</h2>
+                            <p class="f-16_16 text-g-l">Longueur entre <span class="change1">1</span>30 et <span
+                                    class="change1">1</span>90cm<br>
+                                Largeur entre <span class="change1">1</span>5 et 35cm<br>
+                                Poids entre 40 et <span class="change1">1</span>05g</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dark_box_bg" onclick="closeDarkBox(this);"></div>
+            <div id="sacs_box" class="dark_box">
+                <div id="sacs_item1" class="dark_box_img" onclick="productUrl(this,'SHIRAKAWA');">
+                    <img src="./images/product/index_SHIRAKAWA.jpg" alt="">
+                    <div class="dark_box_container">
+                        <div class="dark_box_text_bg"></div>
+                        <div class="dark_box_text">白川<br>SHIRAKAWA</div>
+                    </div>
+                </div>
+                <div id="sacs_item2" class="dark_box_img" onclick="productUrl(this,'KIYOMIZU');">
+                    <img src="./images/product/index_KIYOMIZU.jpg" alt="">
+                    <div class="dark_box_container">
+                        <div class="dark_box_text_bg"></div>
+                        <div class="dark_box_text">清水<br>KIYOMIZU</div>
+                    </div>
+                </div>
+                <div id="sacs_item3" class="dark_box_img" onclick="productUrl(this,'SAGANO');">
+                    <img src="./images/product/index_SAGANO.jpg" alt="">
+                    <div class="dark_box_container">
+                        <div class="dark_box_text_bg"></div>
+                        <div class="dark_box_text">嵯峨野<br>SAGANO</div>
+                    </div>
+                </div>
+                <div id="sacs_item4" class="dark_box_img" onclick="productUrl(this,'GION');">
+                    <img src="./images/product/index_GINO.jpg" alt="">
+                    <div class="dark_box_container">
+                        <div class="dark_box_text_bg"></div>
+                        <div class="dark_box_text">祇園<br>GION</div>
+                    </div>
+                </div>
+                <div class="dark_box_close" onclick="closeDarkBoxAll();">
+                    <img src="./images/x-mark.png" alt="">
+                </div>
+            </div>
+            <div id="accessoire_box" class="dark_box">
+                <div id="accessoire_item1" class="dark_box_img" onclick="productUrl(this,'KOMONOIRE');">
+                    <img src="./images/product/Komono-iré_1.jpg" alt="">
+                    <div class="dark_box_container">
+                        <div class="dark_box_text_bg"></div>
+                        <div class="dark_box_text">御守入れ<br>Komono-iré</div>
+                    </div>
+                </div>
+                <div id="accessoire_item2" class="dark_box_img" onclick="productUrl(this,'OMAMORI');">
+                    <img src="./images/product/index_Omamori-iré.jpg" alt="">
+                    <div class="dark_box_container">
+                        <div class="dark_box_text_bg"></div>
+                        <div class="dark_box_text">小物入れ<br>Omamori-iré</div>
+                    </div>
+                </div>
+                <div class="dark_box_close" onclick="closeDarkBoxAll();">
+                    <img src="./images/x-mark.png" alt="">
+                </div>
+            </div>
+        </section>
+        <section class="container-full">
+            <div class="kv_2">
+                <img class="person1" src="./images/maliko.jpg" alt="">
+            </div>
+        </section>
+        <section class="container-paddingR">
+            <div class="explain" style=" display: block;">
+                <h2 class="f-30_20 text-g-d" style="margin-bottom: 38px;">NOS CRÉATIONS</h2>
+                <p class="write_text text-g-d">
+                    日本の伝統的な染め、織り、刺繍、絞りなどの技術の正絹生地でバッグを作りました。<br>
+                    上品で使い勝手が良く、軽く優しい手触りです。
+                </p>
+                <p class="f-16_12 text-g-d" style="font-style: italic;">
+                    « Un sac en tissu de pure soie utilisant des techniques traditionnelles japonaises telles que la
+                    teinture, le tissage, la broderie et la teinture par nouage. Élégant et agréable à utiliser, léger
+                    et doux au toucher. » <span style="display: block;text-align: right;">Noliko</span>
+                </p>
+            </div>
+        </section>
+        <section class="container-full">
+            <div class="kv_2">
+                <img src="images/kv_teacher.png" alt="">
+            </div>
+        </section>
+        <section class="container-paddingR">
+            <div class="explain">
+                <div class="explain__left">
+                    <h2 class="f-30_20 text-g-d">LA VOIE DU THÉ</h2>
+                    <!-- <img src="images/subtitle_2.png" alt=""> -->
+                    <p class="text-g-l subtitle_text">茶道</p>
+                    <p class="f-18_12 text-g-l">Maliko <img class=" explain__left--img" src="./images/jonli.png" alt="">
+                        organise régulièrement des
+                        Chakai, mot <br class="br-pc"><br class="br-mb">
+                        traduit souvent par « cérémonie du thé ». Mais il<br class="br-mb"> s’agit plus<br
+                            class="br-pc">
+                        d’une rencontre autour du thé, pour<br class="br-mb"> introduire la<br class="br-pc">
+                        tradition japonaise. Venez découvrir un<br class="br-mb"> aspect<br class="br-pc">
+                        incontournable de la culture japonaise.</p>
+
+                </div>
+                <div class="explain__right">
+                    <p class="f-18_12 text-g-l">Prochaines dates et lieux de Chakai<br>
+                        <a style="text-decoration: none;cursor: auto;color: #86a686;">Le lundi 20 mai, la fête du thé
+                            2024 au Parc de
+                            <br class="br-mb"> Maurepas à Rennes (<span class="text35">35</span>)
+                        </a>
+                        <br>
+                        <a style="text-decoration: none;cursor: auto;color: #86a686;">Les <span
+                                class="change1">1</span>er et 2 juin, Rendez-vous aux jardins en Bretagne
+                            <br class="br-mb"> 2024 à Tréguier (22)
+                        </a>
+                        <br>
+                        <a style="text-decoration: none;cursor: auto;color: #86a686;">Le samedi 22 juin à la Maison
+                            Internationale de Rennes (<span class="text35">35</span>)</a>
+                        <br>
+                        <a style="text-decoration: none;cursor: auto;color: #86a686;">Les 24 et 25 août à Tréguier
+                            (22)</a>
+                    </p>
+                    <br>
+                    <p class="f-18_12 text-g-l">
+                        Les produits Yûga seront vendus en mains propres par Benoît<br class="br-pc"> après la séance
+                        Chakai.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container bg-white">
+            <div class="contact ">
+                <div class="contact__left">
+                    <h2 class="f-30_20 text-g-d ">CONTACT</h2>
+                    <p class="text-g-l subtitle_text">お問い合わせ</p>
+                    <p class="f-14_12 text-g-d ">
+                        SARL Yûga<br>
+                        Adresse : <span class="change1">1</span>2 Avenue de Belle-Île, 35530 Noyal-sur-Vilaine,
+                        France<br>
+                        Email : benoit@yuuga.fr, maliko@yuuga.fr (en japonais)<br>
+                        Téléphone : +33 7 68 69 34 82<br>
+                        Site : www.yuuga.fr</p>
+                    <p class="f-14_12 text-g-d ">
+                        Gérants<br>
+                        Benoît ARMANGE<br>
+                        Maliko OKA<br>
+                        Noliko Masukura
+                    </p>
+                </div>
+                <div class="contact__right">
+
+                    <img src="images/logo.png" alt="">
+                    <img src="images/logo_slogn.png" alt="">
+                </div>
+            </div>
+        </section>
+        <footer class="container">
+            <div class="footerSet">
+                <p class="f-14_12">
+                    yuga copyright 2023
+                </p>
+            </div>
+        </footer>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        const sacs_div = document.querySelector("#sacs");
+        const accessoire_div = document.querySelector("#accessoire");
+        const dark_box_bg = document.querySelector(".dark_box_bg");
+        const sacs_box = document.querySelector("#sacs_box");
+        const accessoire_box = document.querySelector("#accessoire_box");
+        const window_area = document.querySelector("#window");
+        setTimeout(() => {
+
+        })
+        window.addEventListener("load", function () {
+
+            let urlParams = new URLSearchParams(window.location.search);
+            let elements = document.querySelectorAll('.loading-status');
+            elements.forEach(function (element) {
+                element.style.display = 'none';
+            });
+            if (urlParams.has("target")) {
+                dark_box_bg.style.display = "block";
+                switch (urlParams.get("target")) {
+                    case "KIYOMIZU":
+                    case "SHIRAKAWA":
+                    case "SAGANO":
+                    case "GION":
+                        sacs_box.style.display = "flex";
+                        break;
+                    case "KOMONOIRE":
+                    case "OMAMORI":
+                        accessoire_box.style.display = "flex";
+                        break;
+                }
+                window_area.scrollIntoView({ behavior: 'auto' });
+            }
+
+        });
+        function openPopUp(ele) {
+            dark_box_bg.style.display = "block";
+            switch (ele.id) {
+                case "sacs":
+                    sacs_box.style.display = "flex";
+                    break;
+                case "accessoire":
+                    accessoire_box.style.display = "flex";
+                    break;
+            }
+        }
+
+        function productUrl(ele, item) {
+            location.href = "product.html?item=" + item;
+        }
+
+        function closeDarkBox(ele) {
+            ele.style.display = "none";
+            sacs_box.style.display = "none";
+            accessoire_box.style.display = "none";
+        }
+        function closeDarkBoxAll() {
+            dark_box_bg.style.display = "none";
+            sacs_box.style.display = "none";
+            accessoire_box.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>
