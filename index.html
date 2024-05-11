@@ -28,6 +28,75 @@
 
     <link rel="stylesheet" href="css/main.css">
     <style>
+         /* loadinig */
+
+         .lds-ring,
+        .lds-ring div {
+            box-sizing: border-box;
+        }
+
+        .lds-ring {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+
+        }
+
+        .lds-ring div {
+            box-sizing: border-box;
+            display: block;
+            position: fixed;
+            z-index: 9999;
+            top: 48%;
+            left: 48%;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border: 8px solid currentColor;
+            border-radius: 50%;
+            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            border-color: currentColor transparent transparent transparent;
+
+        }
+
+        .lds-ring div:nth-child(1) {
+            animation-delay: -0.45s;
+        }
+
+        .lds-ring div:nth-child(2) {
+            animation-delay: -0.3s;
+        }
+
+        .lds-ring div:nth-child(3) {
+            animation-delay: -0.15s;
+        }
+
+        @keyframes lds-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        .loading-bg {
+            position: fixed;
+            background-color: rgb(0, 0, 0);
+            z-index: 9998;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0;
+            opacity: 0.95;
+        }
+
+        .loading-status {
+            display: block;
+        }
         /* 20240307 修改 */
         .change1{
             font-family: "Times New Roman", Times, serif;
@@ -299,7 +368,7 @@
             .window__imgbox--Two img {
                 width: 100%;
                 height: auto;
-                max-height: 95px;
+                max-height: 130px;
             }
             .subtitle_text {
                 margin-left: auto;
@@ -357,6 +426,13 @@
 </head>
 
 <body>
+    <div class="loadbox loading-bg loading-status"></div>
+    <div class="loadbox lds-ring loading-status">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
     <main>
         <section class="container-full">
             <div class="kv">
@@ -754,6 +830,10 @@
         window.addEventListener("load", function(){
 
             let urlParams = new URLSearchParams(window.location.search);
+            let elements = document.querySelectorAll('.loading-status');
+            elements.forEach(function (element) {
+                element.style.display = 'none';
+            });
             if (urlParams.has("target")) {
                 dark_box_bg.style.display = "block";
                 switch(urlParams.get("target")){
