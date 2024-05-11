@@ -49,6 +49,11 @@
             font-family: writeFont;
             src: url("font/write_font.TTF");
         }
+        .subtitle_text{
+            font-family: "writeFont", sans-serif;
+            margin-bottom: 60px;
+            margin-right: auto;
+        }
         .write_text{
             font-family: "writeFont", sans-serif;
             font-size: clamp(18px, 2vw, 26px);
@@ -95,8 +100,8 @@
             
         }
         .dark_box_img{
-            /* width: 215px; */
-            height: 240px;
+            width: 200px;
+            height: 250px;
             border-radius: 20px;
             overflow: hidden;
             position: relative;
@@ -120,7 +125,6 @@
         }
         #sacs,#accessoire{
             position: relative;
-            /* border-bottom: 1px solid black; */
         }
         #sacs::after,#accessoire::after{
             width: 100%; 
@@ -138,33 +142,18 @@
         .window__content:hover #sacs::after, .window__content:hover #accessoire::after{
             width: 100%;
         }
-
+        
         #sacs_box .dark_box_img:nth-child(1),#sacs_box .dark_box_img:nth-child(4){
             align-self: flex-end;    
         }
-        #sacs_box .dark_box_img:nth-child(1){
-            background-image: linear-gradient(88deg, #BEB2A2, #D5C8B5);
+        #sacs_box .dark_box_img:nth-child(1) img ,#sacs_box .dark_box_img:nth-child(2) img, #sacs_box .dark_box_img:nth-child(4) img{
+            margin-top: -15px;
         }
-        #sacs_box .dark_box_img:nth-child(2){
-            background-image: linear-gradient(88deg, #BEB2A2, #D5C8B5);
+        
+        #sacs_box .dark_box_img:nth-child(3){
+            background-image: linear-gradient(75deg, #DAD3CB, #C2BEB3)
         }
 
-        #sacs_box .dark_box_img:nth-child(4){
-            background-image: linear-gradient(75deg, #CCC6B6, #B6B0A2);
-        }
-        #sacs_box .dark_box_img:nth-child(1) img{
-            transform: scale(1.2);
-        }
-        #sacs_box .dark_box_img:nth-child(2) img{
-            transform: scale(1.1);
-            margin-top: 15px;
-        }
-        #sacs_box .dark_box_img:nth-child(3) img{
-            margin-top: -18px;
-        }
-        #sacs_box .dark_box_img:nth-child(4) img{
-            margin-top: 15px;
-        }
         .sacs_small2 {
             object-position: 0 36%;
         }
@@ -192,7 +181,7 @@
             font-size: 1.8rem;
             position: absolute;
             z-index: 14;
-            top: 45%;
+            top: 38%;
             left: 50%;
             transform: translate(-50%);
             pointer-events: none;
@@ -222,21 +211,19 @@
             right: -30px;
             margin-right: 18%;
         }
+        .person1{
+            flex-grow: 1;
+        }
         @media screen and (max-width: 980px) {
             .dark_box {
-                width: 500px;
-                height: 470px;
+                width: 550px;
+                height: 550px;
             }
             #sacs_box .dark_box_img{
                 position: absolute;
-                width: 185px;
-                height: 185px;
+                width: 212px;
+                height: 212px;
             }
-            /*
-            .dark_box_img img{
-                object-fit: fill;
-            }
-            */
             #sacs_box .dark_box_img:nth-child(1){
                 background-image:none;
                 left: 0;
@@ -261,19 +248,23 @@
                 top: 50%;
                 transform: translateY(-50%) rotate(45deg);
             }
-            #sacs_box .dark_box_img img{
-                transform: rotate(-45deg) translate(25px, 0px);
-            }
-            #sacs_box .dark_box_img:nth-child(1) img {
-                transform: scale(1.2) rotate(-45deg) translate(25px, 0px);
-            }
-            #sacs_box .dark_box_img:nth-child(2) img, #sacs_box .dark_box_img:nth-child(4) img{
+
+            #sacs_box .dark_box_img:nth-child(1) img, #sacs_box .dark_box_img:nth-child(2) img, #sacs_box .dark_box_img:nth-child(4) img{
                 margin-top: 0; 
             }
-            #sacs_box .dark_box_img:nth-child(2) img{
-                transform:scale(1.4) rotate(-45deg) translate(25px, 0px);
-                
+            #sacs_box .dark_box_img:nth-child(1) img {
+                transform: scale(1.4) rotate(-45deg) translate(15px, -35px);
             }
+            #sacs_box .dark_box_img:nth-child(2) img{
+                transform: scale(1.4) rotate(-45deg) translate(13px, -25px);
+            }
+            #sacs_box .dark_box_img:nth-child(3) img{
+                transform: scale(1.4) rotate(-45deg) translate(20px, -13px);
+            }
+            #sacs_box .dark_box_img:nth-child(4) img{
+                transform: scale(1.4) rotate(-45deg) translate(23px, -45px);
+            }
+
             .dark_box_img:hover > .dark_box_container{
                 opacity: 0;
             }
@@ -283,11 +274,11 @@
             }
             #accessoire_box .dark_box_img{
                 position: absolute;
-                width: 180px;
-                height: 180px;
+                width: 212px;
+                height: 212px;
             }
             #accessoire_box .dark_box_img img{
-                transform:scale(1.4) rotate(315deg);
+                transform:scale(1.33) rotate(315deg);
             }
             #accessoire_box .dark_box_img:nth-child(1){
                 left: 0;
@@ -310,6 +301,10 @@
                 height: auto;
                 max-height: 95px;
             }
+            .subtitle_text {
+                margin-left: auto;
+                text-align: center !important;
+            }
         }    
         @media screen and (max-width: 768px){
             .window__imgbox--One img {
@@ -320,6 +315,9 @@
                 width: 100%;
                 height: auto;
                 max-height: 160px;
+            }
+            .kv_2 img {
+                transform: translateX(2.8%) scale(0.6) translateY(-190px);
             }
         }    
         @media screen and (max-width: 580px){
@@ -336,7 +334,25 @@
                 height: auto;
                 max-height: 115px;
             }
+            #sacs_box .dark_box_img:nth-child(1) img {
+                transform: scale(1.4) rotate(-45deg) translate(7px, -18px);
+            }
+            #sacs_box .dark_box_img:nth-child(2) img{
+                transform: scale(1.4) rotate(-45deg) translate(5px, -15px);
+            }
+            #sacs_box .dark_box_img:nth-child(3) img{
+                transform: scale(1.4) rotate(-45deg) translate(11px, -6px);
+            }
+            #sacs_box .dark_box_img:nth-child(4) img{
+                transform: scale(1.4) rotate(-45deg) translate(13px, -26px)
+            }
         } 
+        
+        @media screen and (max-width: 450px){
+            .person1 {
+                margin-right: 40%;
+            }
+        }    
     </style>
 </head>
 
@@ -360,8 +376,8 @@
                        優雅という言葉の響きそのものも優雅です。
                     </p>
                     <!-- <img class="img-mb" src="images/title_mobil.png" alt=""> -->
-                    <p class="f-16_12 text-g-d">L’élégance est une caractéristique de la culture de Kyôto,<br class="br-mb">
-                        l’ancienne capitale du Japon et constitue une tradition japonaise.<br class="br-mb"> L’élégance se traduit par <span style="text-wrap: nowrap;">« Yûga »</span> en japonais. <br> La sonorité du mot &quot;Yûga&quot; est elle-même élégante. </p>
+                    <p style="width: 100%;" class="f-16_12 text-g-d">L’élégance est une caractéristique de la culture de Kyôto,<br class="br-mb">
+                        l’ancienne capitale du Japon et constitue une tradition japonaise.<br class="br-mb"> L’élégance se traduit par <span style="text-wrap: nowrap;">« Yûga »</span> en japonais. <br class="br-mb"> La sonorité du mot &quot;Yûga&quot; est elle-même élégante. </p>
                 </div>
             </div>
         </section>
@@ -372,7 +388,8 @@
                     <div class="introduce__boxContent">
                         <div class="introduce__boxContent--center">
                             <h2 class="f-30_20 text-g-d">NOTRE HISTOIRE</h2>
-                            <img src="images/subtitle_1.png" alt="">
+                            <!-- <img src="images/subtitle_1.png" alt=""> -->
+                            <p class="text-g-l subtitle_text">私たちについて</p>
                             <div class="introduce__boxContent--mbimg">
                                 <img src="images/introduce_mb1.png" alt="">
                             </div>
@@ -579,28 +596,28 @@
             <div class="dark_box_bg" onclick="closeDarkBox(this);"></div>
             <div id="sacs_box" class="dark_box">
                 <div id="sacs_item1" class="dark_box_img" onclick="productUrl(this,'SHIRAKAWA');">
-                    <img src="./images/product/SHIRAKAWA_1.jpg" alt="">
+                    <img src="./images/product/index_SHIRAKAWA.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
                         <div class="dark_box_text">白川<br>SHIRAKAWA</div>
                     </div>
                 </div>
                 <div  id="sacs_item2" class="dark_box_img" onclick="productUrl(this,'KIYOMIZU');">
-                    <img src="./images/product/KIYOMIZU_1.jpg" alt="">
+                    <img src="./images/product/index_KIYOMIZU.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
                         <div class="dark_box_text">清水<br>KIYOMIZU</div>
                     </div>
                 </div>
                 <div  id="sacs_item3" class="dark_box_img" onclick="productUrl(this,'SAGANO');">
-                    <img src="./images/product/SAGANO_1.jpg" alt="">
+                    <img src="./images/product/index_SAGANO.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
                         <div class="dark_box_text">嵯峨野<br>SAGANO</div>    
                     </div>
                 </div>
                 <div  id="sacs_item4" class="dark_box_img" onclick="productUrl(this,'GION');">
-                    <img src="./images/product/GION_0.jpg" alt="">
+                    <img src="./images/product/index_GINO.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
                         <div class="dark_box_text">祇園<br>GION</div>
@@ -619,7 +636,7 @@
                     </div>
                 </div>
                 <div  id="accessoire_item2" class="dark_box_img" onclick="productUrl(this,'OMAMORI');">
-                    <img src="./images/product/Omamori-iré_1.jpg" alt="">
+                    <img src="./images/product/index_Omamori-iré.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
                         <div class="dark_box_text">小物入れ<br>Omamori-iré</div>
@@ -632,11 +649,11 @@
         </section>
         <section class="container-full">
             <div class="kv_2">
-                <img src="images/kv_teacher.png" alt="">
+                <img class="person1" src="./images/maliko.jpg" alt="">
             </div>
         </section>
         <section class="container-paddingR">
-            <div class="explain" style="display: block;">
+            <div class="explain" style=" display: block;">
                 <h2 class="f-30_20 text-g-d" style="margin-bottom: 38px;">NOS CRÉATIONS</h2>    
                 <p class="write_text text-g-d">
                     日本の伝統的な染め、織り、刺繍、絞りなどの技術の正絹生地でバッグを作りました。<br>
@@ -656,7 +673,8 @@
             <div class="explain">
                 <div class="explain__left">
                     <h2 class="f-30_20 text-g-d">LA VOIE DU THÉ</h2>
-                    <img src="images/subtitle_2.png" alt="">
+                    <!-- <img src="images/subtitle_2.png" alt=""> -->
+                    <p class="text-g-l subtitle_text">茶道</p>
                     <p class="f-18_12 text-g-l">Maliko <img class=" explain__left--img" src="./images/jonli.png" alt="">
                         organise régulièrement des
                         Chakai, mot <br class="br-pc"><br class="br-mb">
@@ -694,7 +712,7 @@
             <div class="contact ">
                 <div class="contact__left">
                     <h2 class="f-30_20 text-g-d ">CONTACT</h2>
-                    <img src="images/subtitle_3.png" alt="">
+                    <p class="text-g-l subtitle_text">お問い合わせ</p>
                     <p class="f-14_12 text-g-d ">
                         SARL Yûga<br>
                         Adresse : <span class="change1">1</span>2 Avenue de Belle-Île, 35530 Noyal-sur-Vilaine, France<br>
@@ -709,6 +727,7 @@
                     </p>
                 </div>
                 <div class="contact__right">
+                    
                     <img src="images/logo.png" alt="">
                     <img src="images/logo_slogn.png" alt="">
                 </div>
