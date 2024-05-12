@@ -81,8 +81,6 @@
                 transform: rotate(360deg);
             }
         }
-
-
         .loading-bg {
             position: fixed;
             background-color: rgb(0, 0, 0);
@@ -129,6 +127,9 @@
             line-height: 38px !important;
             margin-bottom: 38px;
             text-align: left;
+        }
+        .window__list h2 {
+            margin-bottom: 30px;
         }
         .window__imgbox--One img{
             width: 250px;
@@ -192,6 +193,16 @@
             height: 100%;
             object-fit: cover;
         }
+        .window__box > h2{
+            cursor: pointer;
+        }
+        .window__box:nth-child(3) > h2{
+            cursor: default;
+        }
+        .window__box:hover > h2 {
+            font-weight: bolder;
+        }
+        
         #sacs,#accessoire{
             position: relative;
         }
@@ -208,7 +219,7 @@
             z-index: 2;
             transition:.4s;
         }
-        .window__content:hover #sacs::after, .window__content:hover #accessoire::after{
+        .window__box:hover #sacs::after, .window__box:hover #accessoire::after{
             width: 100%;
         }
         
@@ -447,12 +458,10 @@
         <section class="container">
             <div class="title">
                 <div class="title__content">
-                    <!-- <img class="img-pc" src="images/title.png" alt=""> -->
                     <p class="write_text text-g-d">優雅、それは古都である京都の文化の特徴であり、日本の伝統です。
                     </p>
-                    <!-- <img class="img-mb" src="images/title_mobil.png" alt=""> -->
                     <p style="width: 100%;" class="f-16_12 text-g-d">L’élégance est une caractéristique de la culture de Kyôto,<br class="br-mb">
-                        l’ancienne capitale du Japon et constitue une tradition japonaise.<br class="br-mb"> L’élégance se traduit par <span style="text-wrap: nowrap;">« Yûga »</span> en japonais. <br class="br-mb"></p>
+                        l’ancienne capitale du Japon et constitue une tradition japonaise. L’élégance se traduit par <span style="text-wrap: nowrap;">« Yûga »</span> en japonais. La sonorité du mot &quot;Yûga&quot; est elle-même élégante. </p>
                 </div>
             </div>
         </section>
@@ -463,7 +472,6 @@
                     <div class="introduce__boxContent">
                         <div class="introduce__boxContent--center">
                             <h2 class="f-30_20 text-g-d">NOTRE HISTOIRE</h2>
-                            <!-- <img src="images/subtitle_1.png" alt=""> -->
                             <p class="text-g-l subtitle_text">私たちについて</p>
                             <div class="introduce__boxContent--mbimg">
                                 <img src="images/introduce_mb1.png" alt="">
@@ -599,8 +607,8 @@
         <section class="container bg-white">
             <div id="window" class="window">
                 <div class="window__list">
-
                     <div class="window__box">
+                        <h2 id="sacs" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS SACS</h2>
                         <div class="window__imgbox">
                             <div class="window__imgbox--One">
                                 <img src="images/product/SHIRAKAWA_1.jpg" alt="">
@@ -615,12 +623,12 @@
                             </div>
                         </div>
                         <div class="window__content">
-                            <h2 id="sacs" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS SACS</h2>
                             <p class="f-16_16 text-g-l">Tous nos sacs sont créés par<br>Noliko, sont fabriqués à la main<br>
                                 au Japon et sont des exemplaires uniques.</p>
                         </div>
                     </div>
                     <div class="window__box">
+                        <h2 id="accessoire" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS PORTE-BIJOUX</h2>
                         <div class="window__imgbox">
                             <div class="window__imgbox--One">
                                 <img src="images/product/Omamori-iré_2_2.jpg" alt="">
@@ -635,13 +643,13 @@
                             </div>
                         </div>
                         <div class="window__content">
-                            <h2 id="accessoire" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS PORTE-BIJOUX</h2>
                             <p class="f-16_16 text-g-l">
                                 Les porte-bijoux en soie,<br>fabriqués à la main au Japon <br>et sont des exemplaires uniques.<br>
                             </p>
                         </div>
                     </div>
                     <div class="window__box">
+                        <h2 class="f-20_20 text-g-d">NOS FOULARDS</h2>
                         <div class="window__imgbox">
                             <div class="window__imgbox--One">
                                 <img src="images/commodity_1.png" alt="">
@@ -660,7 +668,7 @@
                             </div>
                         </div>
                         <div class="window__content">
-                            <h2 class="f-20_20 text-g-d">NOS FOULARDS</h2>
+                            
                             <p class="f-16_16 text-g-l">Longueur entre <span class="change1">1</span>30 et <span class="change1">1</span>90cm<br>
                                 Largeur entre <span class="change1">1</span>5 et 35cm<br>
                                 Poids entre 40 et <span class="change1">1</span>05g</p>
@@ -748,7 +756,6 @@
             <div class="explain">
                 <div class="explain__left">
                     <h2 class="f-30_20 text-g-d">LA VOIE DU THÉ</h2>
-                    <!-- <img src="images/subtitle_2.png" alt=""> -->
                     <p class="text-g-l subtitle_text">茶道</p>
                     <p class="f-18_12 text-g-l">Maliko <img class=" explain__left--img" src="./images/jonli.png" alt="">
                         organise régulièrement des
