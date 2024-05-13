@@ -206,11 +206,9 @@
         #sacs,#accessoire{
             position: relative;
         }
-        #sacs::after,#accessoire::after{
-            width: 100%; 
-        }
         #sacs::after, #accessoire::after {
             content: "";
+            width: 100%; 
             display: block;
             border-bottom: 1px solid #445744;
             height: 1px;
@@ -355,6 +353,15 @@
             .dark_box_text {
                 font-size: 1.5rem;
             }
+            .dark_box_text_border {
+                border-bottom: 1px solid #27372a;
+                width: 0%;
+                height: 1px;
+                transition: 1.5s;
+            }
+            .dark_box_text_border_100 {
+                width: 100%;
+            }
             .text_visible{
                 pointer-events: visible;
             }
@@ -462,7 +469,7 @@
             .person1 {
                 margin-right: 40%;
             }
-        }    
+        }   
     </style>
 </head>
 
@@ -712,28 +719,28 @@
                     <img data-nos="1" src="./images/product/index_SHIRAKAWA.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text"  onclick="productUrl(this,'SHIRAKAWA','yes');">白川<br>SHIRAKAWA</div>
+                        <div class="dark_box_text"  onclick="productUrl_text(this,'SHIRAKAWA');">白川<br>SHIRAKAWA<div class="dark_box_text_border"></div></div>
                     </div>
                 </div>
                 <div id="sacs_item2" class="dark_box_img" onclick="productUrl(this,'KIYOMIZU');">
                     <img data-nos="2" src="./images/product/index_KIYOMIZU.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text" onclick="productUrl(this,'KIYOMIZU','yes');">清水<br>KIYOMIZU</div>
+                        <div class="dark_box_text" onclick="productUrl_text(this,'KIYOMIZU');">清水<br>KIYOMIZU<div class="dark_box_text_border"></div></div>
                     </div>
                 </div>
                 <div  id="sacs_item3" class="dark_box_img" onclick="productUrl(this,'SAGANO');">
                     <img data-nos="3" src="./images/product/SAGANO_small2.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text" onclick="productUrl(this,'SAGANO','yes');">嵯峨野<br>SAGANO</div>    
+                        <div class="dark_box_text" onclick="productUrl_text(this,'SAGANO');">嵯峨野<br>SAGANO<div class="dark_box_text_border"></div></div>    
                     </div>
                 </div>
                 <div id="sacs_item4" class="dark_box_img" onclick="productUrl(this,'GION');">
                     <img data-nos="4" src="./images/product/index_GINO.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text" onclick="productUrl(this,'GION','yes');">祇園<br>GION</div>
+                        <div class="dark_box_text" onclick="productUrl_text(this,'GION');">祇園<br>GION<div class="dark_box_text_border"></div></div>
                     </div>
                 </div>
                 <div class="dark_box_close" onclick="closeDarkBoxAll();">
@@ -745,14 +752,14 @@
                     <img src="./images/product/Komono-iré_1.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text" onclick="productUrl(this,'KOMONOIRE','yes');">御守入れ<br>KOMONO-Iré</div>
+                        <div class="dark_box_text" onclick="productUrl_text(this,'KOMONOIRE');">御守入れ<br>KOMONO-Iré<div class="dark_box_text_border"></div></div>
                     </div>
                 </div>
                 <div  id="accessoire_item2" class="dark_box_img" onclick="productUrl(this,'OMAMORI');">
                     <img src="./images/product/index_Omamori-iré.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text" onclick="productUrl(this,'KOMONOIRE','yes');">小物入れ<br>OMAMORI-Iré</div>
+                        <div class="dark_box_text" onclick="productUrl_text(this,'KOMONOIRE');">小物入れ<br>OMAMORI-Iré<div class="dark_box_text_border"></div></div>
                     </div>
                 </div>
                 <div class="dark_box_close" onclick="closeDarkBoxAll();">
@@ -914,17 +921,13 @@
             }
         }
 
-        function productUrl(ele,item,pass=""){
-            if (pass == "yes"){
-                location.href  = "product.html?item=" + item;
-                return;
-            }
+        function productUrl(ele,item){
             if (screen.width > 980){
                 location.href  = "product.html?item=" + item;
             } else {
-                
                 let hover_con = document.querySelector("#" + ele.id + " .dark_box_container");  
                 let hover_text = document.querySelector("#" + ele.id + " .dark_box_text");  
+                let hover_text_border = document.querySelector("#" + ele.id + " .dark_box_text .dark_box_text_border");  
                 switch(ele.id){
                     case "sacs_item2":
                     case "sacs_item3":
@@ -939,10 +942,13 @@
                 }
                 hover_con.classList.toggle("darkbox_opacity");
                 hover_text.classList.toggle("text_visible");
+                hover_text_border.classList.toggle("dark_box_text_border_100");
 
             }           
         }
-
+        function productUrl_text(ele,item){
+            location.href  = "product.html?item=" + item;
+        }
         function closeDarkBox(ele){
             ele.style.display = "none";
             sacs_box.style.display = "none";
@@ -959,6 +965,8 @@
             let hover_con_all = document.querySelectorAll(".dark_box_container");  
             let hover_img_all = document.querySelectorAll(".dark_box_img ");  
             let hover_text_all = document.querySelectorAll(".dark_box_text");  
+            let hover_border_all = document.querySelectorAll(".dark_box_text .dark_box_text_border");  
+            
             for(i=0;i<hover_con_all.length;i++){
                 hover_con_all[i].classList.remove("darkbox_opacity");
             }
@@ -970,10 +978,12 @@
                 if (hover_img_all[i].classList.contains("mobile_click_2")){
                     hover_img_all[i].classList.remove("mobile_click_2");
                 }
-                
             }
             for(i=0;i<hover_text_all.length;i++){
                 hover_text_all[i].classList.remove("text_visible");
+            }
+            for(i=0;i<hover_border_all.length;i++){
+                hover_border_all[i].classList.remove("dark_box_text_border_100");
             }
         }
     </script>
