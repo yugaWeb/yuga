@@ -235,7 +235,7 @@
         }
 
         .sacs_small2 {
-            object-position: 0 36%;
+            object-position: 0 46%;
         }
         .dark_box_container{
             opacity: 0;
@@ -294,6 +294,7 @@
         .person1{
             flex-grow: 1;
         }
+
         @media screen and (max-width: 980px) {
             .dark_box {
                 width: 550px;
@@ -303,32 +304,35 @@
                 position: absolute;
                 width: 212px;
                 height: 212px;
+                transition: 0.7s;
             }
             #sacs_box .dark_box_img:nth-child(1){
                 background-image:none;
                 left: 0;
                 top: 50%;
-                transform: translateY(-50%) rotate(45deg);
+                transform: translateY(-50%) rotateY(0deg) rotate(45deg);
             }
             #sacs_box .dark_box_img:nth-child(2){
                 background-image:none;
                 left: 50%;
-                transform: translateX(-50%) rotate(45deg);
+                transform: translateX(-50%) rotateY(0deg) rotate(45deg);
                 top: 0;
             }
             #sacs_box .dark_box_img:nth-child(3){
                 background-image:none;
                 left: 50%;
-                transform: translateX(-50%) rotate(45deg);
+                transform: translateX(-50%) rotateY(0deg) rotate(45deg);
                 bottom:0;
             }
             #sacs_box .dark_box_img:nth-child(4){
                 background-image:none;
                 right: 0;
                 top: 50%;
-                transform: translateY(-50%) rotate(45deg);
+                transform: translateY(-50%) rotateY(0deg) rotate(45deg);
             }
-
+            #sacs_box .dark_box_img img {
+                transition: 0.7s;
+            }
             #sacs_box .dark_box_img:nth-child(1) img, #sacs_box .dark_box_img:nth-child(2) img, #sacs_box .dark_box_img:nth-child(4) img{
                 margin-top: 0; 
             }
@@ -339,15 +343,37 @@
                 transform: scale(1.4) rotate(-45deg) translate(13px, -25px);
             }
             #sacs_box .dark_box_img:nth-child(3) img{
-                transform: scale(1.4) rotate(-45deg) translate(20px, -13px);
+                transform: scale(1.4) rotate(-45deg) translate(12px, -13px);
             }
             #sacs_box .dark_box_img:nth-child(4) img{
                 transform: scale(1.4) rotate(-45deg) translate(23px, -45px);
             }
-
-            .dark_box_img:hover > .dark_box_container{
-                opacity: 0;
+            .dark_box_container {
+                
+                transform: rotate(-45deg) scale(1.4) rotateY(180deg);
             }
+            .dark_box_text {
+                font-size: 1.5rem;
+            }
+            .text_visible{
+                pointer-events: visible;
+            }
+             .dark_box_img:hover > .dark_box_container{
+                opacity: 0 ;
+
+            } 
+            .mobile_click {
+                opacity: 1 !important;
+                transform: translateX(-50%) rotateY(180deg) rotate(45deg) !important;
+            }
+            .mobile_click_2 {
+                opacity: 1 !important;
+                transform: translateY(-50%) rotateY(180deg) rotate(45deg) !important;
+            }
+            .darkbox_opacity {
+                opacity: 1 !important;
+            }
+
             #accessoire_box .dark_box_close{
                 margin-right: 5%;
                 top: 0;
@@ -356,6 +382,7 @@
                 position: absolute;
                 width: 212px;
                 height: 212px;
+                transition: 0.7s;
             }
             #accessoire_box .dark_box_img img{
                 transform:scale(1.33) rotate(315deg);
@@ -363,12 +390,12 @@
             #accessoire_box .dark_box_img:nth-child(1){
                 left: 0;
                 top: 50%;
-                transform: translateY(-50%) rotate(45deg);
+                transform: translateY(-50%) rotateY(0deg) rotate(45deg);
             }
             #accessoire_box .dark_box_img:nth-child(2){
                 right: 0;
                 top: 50%;
-                transform: translateY(-50%) rotate(45deg);
+                transform: translateY(-50%) rotateY(0deg) rotate(45deg);
             }
         }
         @media screen and (max-width: 940px){
@@ -404,6 +431,9 @@
             .dark_box {
                 width: 300px;
                 height: 330px;
+            }
+            .dark_box_text {
+                font-size: 0.8rem;
             }
             #sacs_box .dark_box_img, #accessoire_box .dark_box_img{
                 width: 115px;
@@ -608,17 +638,17 @@
             <div id="window" class="window">
                 <div class="window__list">
                     <div class="window__box">
-                        <h2 id="sacs" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS SACS</h2>
+                        <h2 id="sacs" class="f-20_20 text-g-d" data-type="sacs" onclick="openPopUp(this)">NOS SACS</h2>
                         <div class="window__imgbox">
-                            <div class="window__imgbox--One">
+                            <div class="window__imgbox--One" style="cursor:pointer;" data-type="sacs" onclick="openPopUp(this)">
                                 <img src="images/product/SHIRAKAWA_1.jpg" alt="">
                             </div>
                             <div class="window__imgbox--Two">
-                                <div class="window__imgbox--Two1">
+                                <div class="window__imgbox--Two1" data-type="sacs" onclick="openPopUp(this)">
                                     <img src="images/product/KIYOMIZU_small.jpg" alt="">
                                 </div>
-                                <div class="window__imgbox--Two2">
-                                    <img class="sacs_small2" src="images/product/SAGANO_small.jpg" alt="">
+                                <div class="window__imgbox--Two2" data-type="sacs" onclick="openPopUp(this)">
+                                    <img class="sacs_small2" src="./images/product/SAGANO_small2.jpg" alt="">
                                 </div>
                             </div>
                         </div>
@@ -628,16 +658,16 @@
                         </div>
                     </div>
                     <div class="window__box">
-                        <h2 id="accessoire" class="f-20_20 text-g-d" onclick="openPopUp(this)">NOS PORTE-BIJOUX</h2>
+                        <h2 id="accessoire" class="f-20_20 text-g-d" data-type="accessoire" onclick="openPopUp(this)">NOS PORTE-BIJOUX</h2>
                         <div class="window__imgbox">
-                            <div class="window__imgbox--One">
+                            <div class="window__imgbox--One" style="cursor:pointer;" data-type="accessoire" onclick="openPopUp(this)">
                                 <img src="images/product/Omamori-iré_2_2.jpg" alt="">
                             </div>
                             <div class="window__imgbox--Two">
-                                <div class="window__imgbox--Two1  ">
+                                <div class="window__imgbox--Two1 " data-type="accessoire" onclick="openPopUp(this)">
                                     <img src="images/product/Komono-iré_2_fill.jpg" alt="">
                                 </div>
-                                <div class="window__imgbox--Two2">
+                                <div class="window__imgbox--Two2" data-type="accessoire" onclick="openPopUp(this)">
                                     <img src="images/product/Komono-iré_3.jpg" alt="">
                                 </div>
                             </div>
@@ -679,31 +709,31 @@
             <div class="dark_box_bg" onclick="closeDarkBox(this);"></div>
             <div id="sacs_box" class="dark_box">
                 <div id="sacs_item1" class="dark_box_img" onclick="productUrl(this,'SHIRAKAWA');">
-                    <img src="./images/product/index_SHIRAKAWA.jpg" alt="">
+                    <img data-nos="1" src="./images/product/index_SHIRAKAWA.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text">白川<br>SHIRAKAWA</div>
+                        <div class="dark_box_text"  onclick="productUrl(this,'SHIRAKAWA','yes');">白川<br>SHIRAKAWA</div>
                     </div>
                 </div>
-                <div  id="sacs_item2" class="dark_box_img" onclick="productUrl(this,'KIYOMIZU');">
-                    <img src="./images/product/index_KIYOMIZU.jpg" alt="">
+                <div id="sacs_item2" class="dark_box_img" onclick="productUrl(this,'KIYOMIZU');">
+                    <img data-nos="2" src="./images/product/index_KIYOMIZU.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text">清水<br>KIYOMIZU</div>
+                        <div class="dark_box_text" onclick="productUrl(this,'KIYOMIZU','yes');">清水<br>KIYOMIZU</div>
                     </div>
                 </div>
                 <div  id="sacs_item3" class="dark_box_img" onclick="productUrl(this,'SAGANO');">
-                    <img src="./images/product/index_SAGANO.jpg" alt="">
+                    <img data-nos="3" src="./images/product/SAGANO_small2.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text">嵯峨野<br>SAGANO</div>    
+                        <div class="dark_box_text" onclick="productUrl(this,'SAGANO','yes');">嵯峨野<br>SAGANO</div>    
                     </div>
                 </div>
-                <div  id="sacs_item4" class="dark_box_img" onclick="productUrl(this,'GION');">
-                    <img src="./images/product/index_GINO.jpg" alt="">
+                <div id="sacs_item4" class="dark_box_img" onclick="productUrl(this,'GION');">
+                    <img data-nos="4" src="./images/product/index_GINO.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text">祇園<br>GION</div>
+                        <div class="dark_box_text" onclick="productUrl(this,'GION','yes');">祇園<br>GION</div>
                     </div>
                 </div>
                 <div class="dark_box_close" onclick="closeDarkBoxAll();">
@@ -715,14 +745,14 @@
                     <img src="./images/product/Komono-iré_1.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text">御守入れ<br>KOMONO-Iré</div>
+                        <div class="dark_box_text" onclick="productUrl(this,'KOMONOIRE','yes');">御守入れ<br>KOMONO-Iré</div>
                     </div>
                 </div>
                 <div  id="accessoire_item2" class="dark_box_img" onclick="productUrl(this,'OMAMORI');">
                     <img src="./images/product/index_Omamori-iré.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text">小物入れ<br>OMAMORI-Iré</div>
+                        <div class="dark_box_text" onclick="productUrl(this,'KOMONOIRE','yes');">小物入れ<br>OMAMORI-Iré</div>
                     </div>
                 </div>
                 <div class="dark_box_close" onclick="closeDarkBoxAll();">
@@ -732,7 +762,7 @@
         </section>
         <section class="container-full">
             <div class="kv_2">
-                <img class="person1" src="./images/maliko.jpg" alt="">
+                <img class="person1" src="./images/niloko.jpg" alt="">
             </div>
         </section>
         <section class="container-paddingR">
@@ -872,8 +902,9 @@
             
         });
         function openPopUp(ele){
+
             dark_box_bg.style.display = "block";
-            switch(ele.id){
+            switch(ele.dataset.type){
                 case "sacs":
                 sacs_box.style.display = "flex";
                     break;
@@ -883,19 +914,67 @@
             }
         }
 
-        function productUrl(ele,item){
-            location.href  = "product.html?item=" + item;
+        function productUrl(ele,item,pass=""){
+            if (pass == "yes"){
+                location.href  = "product.html?item=" + item;
+                return;
+            }
+            if (screen.width > 980){
+                location.href  = "product.html?item=" + item;
+            } else {
+                
+                let hover_con = document.querySelector("#" + ele.id + " .dark_box_container");  
+                let hover_text = document.querySelector("#" + ele.id + " .dark_box_text");  
+                switch(ele.id){
+                    case "sacs_item2":
+                    case "sacs_item3":
+                        ele.classList.toggle('mobile_click');
+                        break;
+                    case "sacs_item1":
+                    case "sacs_item4":
+                    case "accessoire_item1":
+                    case "accessoire_item2":
+                        ele.classList.toggle('mobile_click_2');
+                        break;
+                }
+                hover_con.classList.toggle("darkbox_opacity");
+                hover_text.classList.toggle("text_visible");
+
+            }           
         }
 
         function closeDarkBox(ele){
             ele.style.display = "none";
             sacs_box.style.display = "none";
             accessoire_box.style.display = "none";
+            clearHover();
         }
         function closeDarkBoxAll(){
             dark_box_bg.style.display = "none";
             sacs_box.style.display = "none";
             accessoire_box.style.display = "none";    
+            clearHover();
+        }
+        function clearHover(){
+            let hover_con_all = document.querySelectorAll(".dark_box_container");  
+            let hover_img_all = document.querySelectorAll(".dark_box_img ");  
+            let hover_text_all = document.querySelectorAll(".dark_box_text");  
+            for(i=0;i<hover_con_all.length;i++){
+                hover_con_all[i].classList.remove("darkbox_opacity");
+            }
+            for(i=0;i<hover_img_all.length;i++){
+                if (hover_img_all[i].classList.contains("mobile_click")){
+                    hover_img_all[i].classList.remove("mobile_click");
+                }
+                
+                if (hover_img_all[i].classList.contains("mobile_click_2")){
+                    hover_img_all[i].classList.remove("mobile_click_2");
+                }
+                
+            }
+            for(i=0;i<hover_text_all.length;i++){
+                hover_text_all[i].classList.remove("text_visible");
+            }
         }
     </script>
 </body>
