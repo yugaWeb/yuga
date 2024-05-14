@@ -275,24 +275,17 @@
         .dark_box_close {
             cursor: pointer;
             position: absolute;
-
+            width: 80px;
+            height: 80px;
+            top: -105px;
+            right: -30px;
         }
         .dark_box_close img {
             width: 100%;
         }
-        #sacs_box .dark_box_close{
-            top: -50px;
-            right: 0;
-        }
-        #accessoire_box .dark_box_close{
-            top: -60px;
-            right: -30px;
-            margin-right: 18%;
-        }
         .person1{
             flex-grow: 1;
         }
-
         @media screen and (max-width: 980px) {
             .dark_box {
                 width: 550px;
@@ -419,6 +412,9 @@
                 margin-left: auto;
                 text-align: center !important;
             }
+            .mobile_underline {
+                text-decoration: underline;
+            }
         }    
         @media screen and (max-width: 768px){
             .window__imgbox--One img {
@@ -439,6 +435,16 @@
                 width: 300px;
                 height: 330px;
             }
+            .dark_box_close {
+                width: 60px;
+                height: 60px;
+            }
+            #sacs_box .dark_box_close {
+                right: 0;
+            }   
+            #accessoire_box .dark_box_close {
+                top: -25px;
+            }   
             .dark_box_text {
                 font-size: 0.8rem;
             }
@@ -744,7 +750,7 @@
                     </div>
                 </div>
                 <div class="dark_box_close" onclick="closeDarkBoxAll();">
-                    <img src="./images/x-mark.png" alt="">
+                    <img src="./images/x_icon_bg.png" alt="">
                 </div>
             </div>
             <div id="accessoire_box" class="dark_box">
@@ -752,18 +758,18 @@
                     <img src="./images/product/Komono-iré_1.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text" onclick="productUrl_text(this,'KOMONOIRE');">御守入れ<br>KOMONO-Iré<div class="dark_box_text_border"></div></div>
+                        <div class="dark_box_text" onclick="productUrl_text(this,'KOMONOIRE');">小物入れ<br>KOMONO-Iré<div class="dark_box_text_border"></div></div>
                     </div>
                 </div>
                 <div  id="accessoire_item2" class="dark_box_img" onclick="productUrl(this,'OMAMORI');">
                     <img src="./images/product/index_Omamori-iré.jpg" alt="">
                     <div class="dark_box_container">
                         <div class="dark_box_text_bg"></div>
-                        <div class="dark_box_text" onclick="productUrl_text(this,'KOMONOIRE');">小物入れ<br>OMAMORI-Iré<div class="dark_box_text_border"></div></div>
+                        <div class="dark_box_text" onclick="productUrl_text(this,'OMAMORI');">御守入れ<br>OMAMORI-Iré<div class="dark_box_text_border"></div></div>
                     </div>
                 </div>
                 <div class="dark_box_close" onclick="closeDarkBoxAll();">
-                    <img src="./images/x-mark.png" alt="">
+                    <img src="./images/x_icon_bg.png" alt="">
                 </div>
             </div>
         </section>
@@ -806,30 +812,37 @@
                 </div>
                 <div class="explain__right">
                     <p class="f-18_12 text-g-l">Prochaines dates et lieux de Chakai<br>
-                        <a href="https://www.confucius-bretagne.org/project/fete-du-the-2024/#:~:text=La%20F%C3%AAte%20du%20th%C3%A9%20sera,2024%2C%20de%2014h%20%C3%A0%2019h"
-                            style="text-decoration: none;cursor: pointer;color: #86a686;"
-                            onmouseover="this.style.textDecoration='underline'"
-                            onmouseout="this.style.textDecoration='none'">Le lundi 20 mai, la fête du thé
-                            2024 au Parc de
-                            <br class="br-mb"> Maurepas à Rennes (<span class="text35">35</span>)
-                        </a>
+                        <span class="mobile_underline">
+                            <a href="https://www.confucius-bretagne.org/project/fete-du-the-2024/"
+                                style="text-decoration: none;cursor: pointer;color: #86a686;"
+                                onmouseover="this.style.textDecoration='underline'"
+                                onmouseout="this.style.textDecoration='none'">Le lundi 20 mai, la fête du thé
+                                2024 au Parc de
+                                <br class="br-mb"> Maurepas à Rennes (<span class="text35">35</span>)
+                            </a>
+                        </span>   
                         <br>
-                        <a href="https://www.obi-jardin.fr/ceremonie-du-the-samedi-1er-juin-15h00/"
-                            style="text-decoration: none;cursor: pointer;color: #86a686;"
-                            onmouseover="this.style.textDecoration='underline'"
-                            onmouseout="this.style.textDecoration='none'">Les <span class="change1">1</span>er et 2
-                            juin, Rendez-vous aux jardins en Bretagne
-                            <br class="br-mb"> 2024 à Tréguier (22)
-                        </a>
+                        <span class="mobile_underline">
+                            <a href="https://www.obi-jardin.fr/ceremonie-du-the-samedi-1er-juin-15h00/"
+                                style="text-decoration: none;cursor: pointer;color: #86a686;"
+                                onmouseover="this.style.textDecoration='underline'"
+                                onmouseout="this.style.textDecoration='none'">Les <span class="change1">1</span>er et 2
+                                juin, Rendez-vous aux jardins en Bretagne
+                                <br class="br-mb"> 2024 à Tréguier (22)
+                            </a>
+                        </span>       
                         <br>
                         <a style="text-decoration: none;cursor: auto;color: #86a686;">Le samedi 22 juin à la Maison
                             Internationale de Rennes (<span class="text35">35</span>)</a>
                         <br>
-                        <a href="https://www.obi-jardin.fr/ceremonie-du-the-samedi-1er-juin-15h00/"
-                            style="text-decoration: none;cursor: pointer;color: #86a686;"
-                            onmouseover="this.style.textDecoration='underline'"
-                            onmouseout="this.style.textDecoration='none'">Les 24 et 25 août à Tréguier
-                            (22)</a>
+                        <span class="mobile_underline">
+                            <a href="https://www.obi-jardin.fr/ceremonie-du-the-samedi-1er-juin-15h00/"
+                                style="text-decoration: none;cursor: pointer;color: #86a686;"
+                                onmouseover="this.style.textDecoration='underline'"
+                                onmouseout="this.style.textDecoration='none'">Les 24 et 25 août à Tréguier
+                                (22)
+                            </a>
+                        </span>   
                     </p>
                     <br>
                     <p class="f-18_12 text-g-l">
