@@ -184,6 +184,12 @@ body {
   margin: auto;
   padding: 0 50px 0 200px;
 }
+
+/* icon */
+.social-icon{
+  margin-top: 30px;
+}
+
 @media (max-width: 1280px) {
   .container-paddingR {
     padding: 0 100px;
@@ -465,29 +471,29 @@ footer {
 @media (max-width: 768px) {
   .introduce__boxflex .introduce__boxContent {
     text-align: center;
-  }
+  }  
 }
 .introduce__boxContent {
-  width: 100%;
+  width: 50%;
+  padding: 0 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-grow: 1;
   text-align: right;
 }
+
 @media (max-width: 768px) {
   .introduce__boxContent {
     text-align: center;
+    padding: 0;
   }
 }
 @media (max-width: 768px) {
-  .introduce__boxContent--center {
-    width: 100%;
+    .introduce__boxContent--center h2 {
+      margin-bottom: 6px;
+    }
   }
-}
-.introduce__boxContent--center h2 {
-  margin-bottom: 6px;
-}
 @media (max-width: 768px) {
   .introduce__boxContent--center h2 {
     margin-top: 20px;
@@ -517,7 +523,7 @@ footer {
   }
 }
 .introduce__boxImg {
-  width: 100%;
+  width: 50%;
   flex-grow: 1;
 }
 @media (max-width: 768px) {
@@ -655,23 +661,33 @@ footer {
   .kv_2 img {
     transform: translateX(4.8%) scale(0.6) translateY(-190px);
   }
+  .explain-position{
+    margin-top: -150px !important;
+  }
+  .explain {
+    margin-top: -30px;
+  }
+
+}
+.explain-title{
+  padding: 140px 0;
 }
 
 .explain {
-  padding: 140px 0;
+  padding: 40px 0;
   display: flex;
-  align-items: flex-end;
+  /* align-items: flex-end; */
   justify-content: space-between;
   margin-top: -30px;
 }
 @media (max-width: 940px) {
-  .explain {
+  .explain-title ,.explain{
     flex-direction: column;
     text-align: center;
   }
 }
 @media (max-width: 768px) {
-  .explain {
+  .explain-title {
     margin-top: -270px;
   }
 }
@@ -772,12 +788,6 @@ footer {
 .contact__left {
   width: 100%;
 }
-@media (max-width: 940px) {
-  .contact__left {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-}
 .contact__left h2 {
   margin-bottom: 6px;
 }
@@ -790,9 +800,9 @@ footer {
   .contact__left img {
     margin-left: auto;
   }
-}
-.contact__left p {
-  text-align: left;
+  .contact__left{
+    text-align: left;
+  }
 }
 @media (max-width: 425px) {
   .contact__left p {
