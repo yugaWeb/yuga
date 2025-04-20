@@ -819,6 +819,9 @@ footer {
   bottom: 0px;
   left: 0;
 }
+.company-name {
+  font-weight: bold;
+}
 @media (max-width: 940px) {
   .contact__right img:nth-child(1) {
     position: relative;
