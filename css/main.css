@@ -875,3 +875,12 @@ footer {
     height: 40px;
   }
 }
+
+.link-hover-underline-simple {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-hover-underline-simple:hover {
+  text-decoration: underline;
+}
