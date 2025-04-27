@@ -746,6 +746,7 @@ footer {
 }
 .explain__right p {
   text-align: left;
+  /* width: 100%; */
 }
 @media (max-width: 940px) {
   .explain__right p {
