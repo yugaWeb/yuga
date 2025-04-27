@@ -683,11 +683,11 @@ footer {
 }
 
 .explain {
-  padding: 40px 0;
+  /* padding: 40px 0; */
   display: flex;
   /* align-items: flex-end; */
   justify-content: space-between;
-  margin-top: -30px;
+  /* margin-top: -30px; */
 }
 @media (max-width: 940px) {
   .explain-title ,.explain{
@@ -700,7 +700,7 @@ footer {
     margin-top: -270px;
   }
 }
-.explain p {
+.explain p ,.explain-title p{
   line-height: 32px;
 }
 .explain__left {
