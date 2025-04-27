@@ -885,3 +885,14 @@ footer {
     height: 40px;
   }
 }
+
+.link-hover-underline-simple {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-hover-underline-simple:hover {
+  text-decoration: underline;
+  text-decoration-color: #86a686; /* ⭐ 設定底線顏色 */
+  text-decoration-thickness: 1px; /* ⭐ (現代瀏覽器支援) 設定底線粗細 */
+}
