@@ -210,8 +210,9 @@ body {
   }
 }
 @media (max-width: 768px) {
-  .container-paddingR {
+  .custom-position {
     padding: 0 30px;
+    transform: translateY(-140px);
   }
 }
 
@@ -697,7 +698,8 @@ footer {
 }
 @media (max-width: 768px) {
   .explain-title {
-    margin-top: -270px;
+    padding: 0 0 80px 0;
+    margin: 0px;
   }
 }
 .explain p ,.explain-title p{
@@ -739,6 +741,9 @@ footer {
 @media (max-width: 425px) {
   .explain__left p {
     text-align: left;
+  }
+  .explain-title{
+    padding: 50px 0;
   }
 }
 .explain__right {
