@@ -804,6 +804,14 @@ footer {
   .contact {
     flex-direction: column;
   }
+  .contact h2,.contact .subtitle_text{
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .contact-wrap{
+    margin: -120px 0 0 0;
+  }
 }
 .contact__left {
   width: 100%;
