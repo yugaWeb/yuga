@@ -196,7 +196,9 @@ body {
   padding: 0 20px 0  0;
 }
 
-
+.custom-wrap-style{
+text-wrap: nowrap;
+}
 
 
 @media (max-width: 1280px) {
@@ -213,6 +215,9 @@ body {
   .custom-position {
     padding: 0 30px;
     transform: translateY(-140px);
+  }
+  .custom-wrap-style{
+    text-wrap: wrap;
   }
 }
 
