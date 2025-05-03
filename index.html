@@ -118,7 +118,7 @@
         }
         .subtitle_text{
             font-family: "writeFont", sans-serif;
-            margin-bottom: 60px;
+            margin-bottom: 38px;
             margin-right: auto;
         }
         .write_text{
@@ -286,6 +286,7 @@
         .person1{
             flex-grow: 1;
         }
+        
         @media screen and (max-width: 980px) {
             .dark_box {
                 width: 550px;
@@ -409,13 +410,14 @@
                 max-height: 130px;
             }
             .subtitle_text {
-                margin-left: auto;
-                text-align: center !important;
+                /* margin-left: auto; */
+                /* text-align: right; */
             }
             .mobile_underline {
                 text-decoration: underline;
             }
         }    
+        
         @media screen and (max-width: 768px){
             .window__imgbox--One img {
                 width: 100%;
@@ -426,9 +428,7 @@
                 height: auto;
                 max-height: 160px;
             }
-            .kv_2 img {
-                transform: translateX(2.8%) scale(0.6) translateY(-190px);
-            }
+            
         }    
         @media screen and (max-width: 580px){
             .dark_box {
@@ -501,24 +501,31 @@
         <!-- 分隔線------------------------------------>
         <section class="container bg-white">
             <div>
-                <div style="margin-bottom: 50px; margin-top: 80px;text-align: center;">
-                    <h2 class="f-30_20 text-g-d">Activité Prochaine : Logonna Japan Festival</h2><br>
-                    <h2 class="f-30_20 text-g-d">le 7 JUIN, 10H à 19H</h2>
-                    <!-- <a href="https://assologojapon.wixsite.com/nami/2025" target="_blank" rel="noopener noreferrer">
-                        <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin: 20px auto 0;">
-                          <img src="images/logonna-fes.jpg" alt="Logonna Japan Festival" style="width: 100%; height: auto;">
-                        </div>
-                      </a> -->
-                    <a href="https://assologojapon.wixsite.com/nami/2025" target="_blank" rel="noopener noreferrer" 
-                       style="display: inline-block;">
-                      <div style="width: 300px; height: 200px; display: flex; justify-content: center; align-items: center; margin: 0 auto;">
-                        <img src="images/festival.avif" alt="Logonna Japan Festival"
-                             style="max-width: 85%; max-height: 85%;">
-                      </div>
-                    </a>
+              <div class="text-center-section">
+                <!-- 標題 -->
+                <a href="https://assologojapon.wixsite.com/nami/2025" target="_blank" rel="noopener noreferrer" class="link-hover-underline-simple">
+                  <div class="text-group">
+                    <h2 class="f-30_20 text-g-d responsive-title">
+                      À venir : Exposition-Vente Logona Japan Festival, le 7 JUIN, 10H à 19H
+                    </h2>
                   </div>
+                </a>
+          
+                <!-- 圖片區塊 -->
+                <div class="image-row">
+                  <!-- LOGO 圖 -->
+                  <div class="image-box logo-img">
+                    <img src="images/festival.png" alt="Logonna Japan Festival">
+                  </div>
+          
+                  <!-- Floor Plan 圖，無超連結 -->
+                  <div class="image-box floor-img">
+                    <img src="images/map.png" alt="Floor Plan">
+                  </div>
+                </div>
+              </div>
             </div>
-        </section>
+          </section>
         <!-- 分隔線------------------------------------>
         <section class="container">
             <div class="title">
@@ -547,14 +554,12 @@
                             <p class="f-20_12 text-g-d br-pc">
                                 Yûga a été fondée par deux<br>
                                 Japonaises, Noliko et Maliko,<br class="br-pc">
-                                qui souhaitaient faire découvrir<br>
-                                l’élégance et la tradition japonaises en France,<br>
-                                et Benoît, un Français qui a étudié le japonais <br>
-                                et qui a aussi beaucoup travaillé avec le Japon, <br>
-                                et Chiying, une Taïwanaise vivant à Taipei,<br>
-                                etudiant aussi le japonais et ayant vécu <br>en France, complètent l'équipe.<br>
-                                <br>
-                                <br>
+                                qui souhaitaient faire découvrir
+                                l’élégance et la tradition japonaises en France,
+                                et Benoît, un Français qui a étudié le japonais
+                                et qui a aussi beaucoup travaillé avec le Japon,
+                                et Chiying, une Taïwanaise vivant à Taipei,
+                                etudiant aussi le japonais et ayant vécu en France, complètent l'équipe.
                             </p>
                         </div>
                     </div>
@@ -572,23 +577,23 @@
                             <div class="introduce__boxContent--mbimg">
                                 <img src="images/mb_porte_bijoux.jpg" alt="">
                             </div>
-                            <p class="f-20_12 text-g-d  br-mb ">
-                                Tous les produits Yûga sont fabriqués à la main à Kyôto.<br>
-                                Kyôto est l’ancienne capitale du Japon et conserve des<br>
-                                traditions remontant au VIIIe siècle.<br>
+                            <p class="f-20_12 text-g-d br-mb ">
+                                Tous les produits Yûga sont fabriqués à la main à Kyôto.
+                                Kyôto est l’ancienne capitale du Japon et conserve des
+                                traditions remontant au VIIIe siècle.
                             </p>
                             <p class="f-20_12 text-g-d br-pc">
-                                Tous les produits Yûga sont<br>
-                                fabriqués à la main à Kyôto.<br>
-                                Kyôto est l’ancienne capitale du<br>
-                                Japon et conserve des traditions<br>
+                                Tous les produits Yûga sont
+                                fabriqués à la main à Kyôto.
+                                Kyôto est l’ancienne capitale du
+                                Japon et conserve des traditions
                                 remontant au VIIIe siècle.
                             </p>
                         </div>
                     </div>
                     <div class="introduce__boxImg">
                         <div class="introduce__boxImg--set">
-                            <img src="images/porte_bijoux.jpg" alt="">
+                            <img src="images/porte_bijoux.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -600,30 +605,30 @@
                                 <img src="images/introduce_mb3.png" alt="">
                             </div>
                             <p class="f-20_12 text-g-d br-mb">
-                                Le foulard de Yûga sont fabriqués<br>
-                                à partir d’un tissu traditionnel en<br>
-                                pure soie de haute qualité de Kyôto,<br>
-                                appelé obiage. L'obiage est utilisé<br>
-                                pour monter et fixer l'obi, la ceinture<br>
-                                d'un kimono, donc est caché par l'obi.<br>
-                                Seule une partie en est visible.<br>
-                                L'idée de l'utiliser comme foulard<br>
-                                met en valeur sa beauté sous<br>
-                                un angle différent, adapté aux habitudes<br>
-                                vestimentaires européennes.<br>
+                                Le foulard de Yûga sont fabriqués
+                                à partir d’un tissu traditionnel en
+                                pure soie de haute qualité de Kyôto,
+                                appelé obiage. L'obiage est utilisé
+                                pour monter et fixer l'obi, la ceinture
+                                d'un kimono, donc est caché par l'obi.
+                                Seule une partie en est visible.
+                                L'idée de l'utiliser comme foulard
+                                met en valeur sa beauté sous
+                                un angle différent, adapté aux habitudes
+                                vestimentaires européennes.
                             </p>
                             <p class="f-20_12 text-g-d br-pc">
-                                Le foulard de Yûga sont fabriqués<br>
-                                à partir d’un tissu traditionnel en<br>
-                                pure soie de haute qualité de Kyôto,<br>
-                                appelé obiage. L'obiage est utilisé<br>
-                                pour monter et fixer l'obi, la ceinture<br>
-                                d'un kimono, donc est caché par l'obi.<br>
-                                Seule une partie en est visible.<br>
-                                L'idée de l'utiliser comme foulard<br>
-                                met en valeur sa beauté sous<br>
-                                un angle différent, adapté aux habitudes<br>
-                                vestimentaires européennes.<br>
+                                Le foulard de Yûga sont fabriqués
+                                à partir d’un tissu traditionnel en
+                                pure soie de haute qualité de Kyôto,
+                                appelé obiage. L'obiage est utilisé
+                                pour monter et fixer l'obi, la ceinture
+                                d'un kimono, donc est caché par l'obi.
+                                Seule une partie en est visible.
+                                L'idée de l'utiliser comme foulard
+                                met en valeur sa beauté sous
+                                un angle différent, adapté aux habitudes
+                                vestimentaires européennes.
                             </p>
                         </div>
                     </div>
@@ -642,26 +647,26 @@
                                 <img src="images/bowl.jpg" alt="">
                             </div>
                             <p class="f-20_12 text-g-d br-mb">
-                                GOUN Toen est spécialisé dans la production<br>
-                                de céramiques « Kyo-yaki » ou « Kiyomizu-yaki »,<br>
-                                un artisanat traditionnel de la préfecture de Kyoto.<br>
-                                Kiyonori MAEDA, troisième génération de GOUN,<br>
-                                poursuit chaque jour son exploration.<br>
-                                Ses céramiques ne se limitent pas à être<br>
-                                gracieuses, délicates et ludiques;<br>
-                                elles sont également conçues pour<br>
-                                une utilisation quotidienne.<br>
+                                GOUN Toen est spécialisé dans la production
+                                de céramiques « Kyo-yaki » ou « Kiyomizu-yaki »,
+                                un artisanat traditionnel de la préfecture de Kyoto.
+                                Kiyonori MAEDA, troisième génération de GOUN,
+                                poursuit chaque jour son exploration.
+                                Ses céramiques ne se limitent pas à être
+                                gracieuses, délicates et ludiques;
+                                elles sont également conçues pour
+                                une utilisation quotidienne.
                             </p>
                             <p class="f-20_12 text-g-d br-pc">
-                                GOUN Toen est spécialisé dans la production<br>
-                                de céramiques « Kyo-yaki » ou « Kiyomizu-yaki »,<br>
-                                un artisanat traditionnel de la préfecture de Kyoto.<br>
-                                Kiyonori MAEDA, troisième génération de GOUN,<br>
-                                poursuit chaque jour son exploration.<br>
-                                Ses céramiques ne se limitent pas à être<br>
-                                gracieuses, délicates et ludiques;<br>
-                                elles sont également conçues pour<br>
-                                une utilisation quotidienne.<br>
+                                GOUN Toen est spécialisé dans la production
+                                de céramiques « Kyo-yaki » ou « Kiyomizu-yaki »,
+                                un artisanat traditionnel de la préfecture de Kyoto.
+                                Kiyonori MAEDA, troisième génération de GOUN,
+                                poursuit chaque jour son exploration.
+                                Ses céramiques ne se limitent pas à être
+                                gracieuses, délicates et ludiques;
+                                elles sont également conçues pour
+                                une utilisation quotidienne.
                             </p>
                         </div>
                     </div>
@@ -804,35 +809,13 @@
                 </div>
             </div>
         </section>
-        <!-- 分隔線 --------------------------------------------------------------------------- -->
-        <section class="container bg-white">
-            <div>
-                <div style="margin-bottom: 80px; text-align: center;">
-                    <h2 class="f-30_20 text-g-d">Activité Prochaine : Logonna Japan Festival</h2><br>
-                    <h2 class="f-30_20 text-g-d">le 7 JUIN, 10H à 19H</h2>
-                    <a href="https://assologojapon.wixsite.com/nami/2025" target="_blank" rel="noopener noreferrer">
-                        <div style="width: 100%; display: flex; justify-content: center; align-items: center; margin: 20px auto 0;">
-                          <img src="images/logonna-fes.jpg" alt="Logonna Japan Festival" style="width: 100%; height: auto;">
-                        </div>
-                      </a>
-                    <!-- <a href="https://assologojapon.wixsite.com/nami/2025" target="_blank" rel="noopener noreferrer" 
-                       style="display: inline-block;">
-                      <div style="width: 300px; height: 200px; display: flex; justify-content: center; align-items: center; margin: 0 auto;">
-                        <img src="images/festival.avif" alt="Logonna Japan Festival"
-                             style="max-width: 85%; max-height: 85%;">
-                      </div>
-                    </a> -->
-                  </div>
-            </div>
-        </section>
-        <!-- 分隔線----------------------------------------------------------------------------------------- -->
         <section class="container-full">
             <div class="kv_2">
                 <img class="person1" src="./images/noliko.jpg" alt="">
             </div>
         </section>
         <section class="container-paddingR">
-            <div class="explain" style=" display: block;">
+            <div class="explain-title explain-position" style=" display: block;">
                 <h2 class="f-30_20 text-g-d" style="margin-bottom: 38px;">NOS CRÉATIONS</h2>    
                 <p class="write_text text-g-d">
                     日本の伝統的な染め、織り、刺繍、絞りなどの技術の正絹生地でバッグを作りました。<br>
@@ -848,59 +831,70 @@
                 <img src="images/kv_teacher.png" alt="">
             </div>
         </section>
-        <section class="container-paddingR">
-            <div class="explain">
-                <div class="explain__left">
+        <section class="container-paddingR custom-position">
+            <div class="explain-title">
+                <div>
                     <h2 class="f-30_20 text-g-d">LA VOIE DU THÉ</h2>
                     <p class="text-g-l subtitle_text">茶道</p>
-                    <p class="f-18_12 text-g-l">Maliko <img class=" explain__left--img" src="./images/jonli.png" alt="">
-                        organise régulièrement des
-                        Chakai, mot <br class="br-pc"><br class="br-mb">
-                        traduit souvent par « cérémonie du thé ». Mais il<br class="br-mb"> s’agit plus<br
-                            class="br-pc">
-                        d’une rencontre autour du thé, pour<br class="br-mb"> introduire la<br class="br-pc">
-                        tradition japonaise. Venez découvrir un<br class="br-mb"> aspect<br class="br-pc">
-                        incontournable de la culture japonaise.</p>
-
                 </div>
-                <div class="explain__right">
-                    <p class="f-18_12 text-g-l">Prochaines dates et lieux de Chakai<br>
-                        <span class="mobile_underline">
-                            <a href="https://www.confucius-bretagne.org/project/fete-du-the-2025/"
-                                style="text-decoration: none;cursor: pointer;color: #86a686;"
-                                onmouseover="this.style.textDecoration='underline'"
-                                onmouseout="this.style.textDecoration='none'">Le lundi 9 Juin, la fête du thé
-                                2025 au Parc de
-                                <br class="br-mb"> Maurepas à Rennes (<span class="text35">35</span>)
-                            </a>
-                        </span>   
-                        <br>
-                        <span class="mobile_underline">
-                            <a href="https://www.obi-jardin.fr/ceremonie-du-the-samedi-1er-juin-15h00/"
-                                style="text-decoration: none;cursor: pointer;color: #86a686"
-                                onmouseover="this.style.textDecoration='underline'"
-                                onmouseout="this.style.textDecoration='none'">Les <span class="change1">14</span> et 15
-                                Juin, Rendez-vous aux jardins en Bretagne
-                                <br class="br-mb"> 2025 à Tréguier (22)
-                            </a>
-                        </span>
-                        <br>
-                        <span class="mobile_underline">
-                            <a href="https://www.rennes-sendai.fr/2025/02/grande-ceremonie-du-the/"
-                            style="text-decoration: none;cursor: pointer;color: #86a686;"onmouseover="this.style.textDecoration='underline'"
-                            onmouseout="this.style.textDecoration='none'">Le samedi 24 Mai à la Maison
-                            Internationale de Rennes (<span class="text35">35</span>)
-                            </a>
-                        </span> 
-                    </p>
+                <div class="explain">
+                    <div class="explain__left">
+                        <p class="f-18_12 text-g-l">Maliko <img class=" explain__left--img" src="./images/jonli.png" alt="">
+                            organise régulièrement des
+                            Chakai, mot
+                            traduit souvent par « cérémonie du thé ». Mais il s’agit plus
+                            d’une rencontre autour du thé, pour introduire la
+                            tradition japonaise. Venez découvrir un aspect
+                            incontournable de la culture japonaise.</p>
+                    </div>
+                    <div class="explain__right">
+                        <p class="f-18_12 text-g-l">
+                            <strong style="font-weight: bold;">Prochaines dates et lieux de Chakai</strong><br>
+                            <span class="mobile_underline">
+                                <a href="https://www.rennes-sendai.fr/2025/02/grande-ceremonie-du-the/"
+                                style="text-decoration: none;cursor: pointer;color: #86a686;"onmouseover="this.style.textDecoration='underline'"
+                                onmouseout="this.style.textDecoration='none'">Le samedi 24 Mai 2025 à la Maison
+                                Internationale de Rennes (<span class="text35">35</span>)
+                                </a>
+                            </span> 
+                            <br>
+                            <span class="mobile_underline">
+                                <a href="https://www.confucius-bretagne.org/project/fete-du-the-2025/"
+                                    style="text-decoration: none;cursor: pointer;color: #86a686;"
+                                    onmouseover="this.style.textDecoration='underline'"
+                                    onmouseout="this.style.textDecoration='none'">Le lundi 9 Juin, la fête du thé
+                                    2025 au Parc de
+                                    <br class="br-mb"> Maurepas à Rennes (<span class="text35">35</span>)
+                                </a>
+                            </span>   
+                            <br>
+                            <span class="mobile_underline custom-wrap-style">
+                                <a href="https://www.obi-jardin.fr/ceremonies-du-the-juin-2025-reservation/"
+                                    style="text-decoration: none;cursor: pointer;color: #86a686"
+                                    onmouseover="this.style.textDecoration='underline'"
+                                    onmouseout="this.style.textDecoration='none'">Les <span class="change1">14</span> et 15
+                                    Juin, Rendez-vous aux jardins en Bretagne 2025 à Tréguier (22)
+                                </a>
+                            </span> 
+                            <br>
+                            <span class="mobile_underline custom-wrap-style">
+                                <a href="https://www.obi-jardin.fr/ceremonies-du-the-juin-2025-reservation/"
+                                    style="text-decoration: none;cursor: pointer;color: #86a686"
+                                    onmouseover="this.style.textDecoration='underline'"
+                                    onmouseout="this.style.textDecoration='none'">Les <span class="change1">23</span> et 24
+                                    Août, à Obi-jardin, Tréguier (22)
+                                </a>
+                            </span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="container bg-white">
-            <div class="contact ">
+        <section class="container bg-white contact-wrap">
+            <div class="contact">
                 <div class="contact__left">
-                    <h2 class="f-30_20 text-g-d ">CONTACT</h2>
+                    <h2 class="f-30_20 text-g-d">CONTACT</h2>
                     <p class="text-g-l subtitle_text">お問い合わせ</p>
                     <p class="f-14_12 text-g-d ">
                         <span style="display: inline-flex;">
@@ -908,15 +902,15 @@
                         </span>
                         <br>
                         Adresse : <span class="change1">1</span>2 Avenue de Belle-Île, 35530 Noyal-sur-Vilaine, France<br>
-                        Email : benoit@yuuga.fr, &thinsp;maliko@yuuga.fr (en japonais),<br>    &emsp;&emsp;&emsp;&ensp;chiying@yuuga.fr (en chinois)<br>
+                        Email : benoit@yuuga.fr, &thinsp;maliko@yuuga.fr (en japonais),<br>chiying@yuuga.fr (en chinois)<br>
                         Téléphone : +33 7 68 69 34 82<br>
                         Site : www.yuuga.fr<br>
-                        <span style="display: inline-flex; align-items: baseline;">
+                        <span class="social-icon" style="display: inline-flex; align-items: baseline;">
                             <a href="https://youtu.be/Dk2elT3YgWE?si=YhgV26JVq-q86T7r" target="_blank" rel="noopener noreferrer">
                                 <img src="images/youtube.png" alt="YouTube" style="width:30px; height:30px; margin-bottom:0px;margin-top:5px;">
                             </a>
                             <a href="https://www.instagram.com/yuga.france/saved/" target="_blank" rel="noopener noreferrer" style="margin-left: 8px;">
-                                <img src="images/instagram_2.png" alt="Instagram" style="width:30px; height:30px; margin-bottom:0px;margin-top:5px;">
+                                <img src="images/instagram.png" alt="Instagram" style="width:30px; height:30px; margin-bottom:0px;margin-top:5px;">
                             </a>
                         </span>
 

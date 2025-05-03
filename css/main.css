@@ -182,21 +182,44 @@ body {
   max-width: 1440px;
   padding: 0px;
   margin: auto;
-  padding: 0 50px 0 200px;
+  /* padding: 0 50px 0 200px; */
+  padding: 0 200px;
 }
+
+/* icon */
+.social-icon{
+  margin-top: 30px;
+}
+
+/* explain */
+.explain__left{
+  padding: 0 20px 0  0;
+}
+
+.custom-wrap-style{
+text-wrap: nowrap;
+}
+
+
 @media (max-width: 1280px) {
   .container-paddingR {
     padding: 0 100px;
+    /* margin-top: -200px; */
   }
 }
 @media (max-width: 1024px) {
   .container-paddingR {
     padding: 0 60px;
+    /* margin-top: -100px; */
   }
 }
 @media (max-width: 768px) {
-  .container-paddingR {
+  .custom-position {
     padding: 0 30px;
+    transform: translateY(-140px);
+  }
+  .custom-wrap-style{
+    text-wrap: wrap;
   }
 }
 
@@ -465,29 +488,29 @@ footer {
 @media (max-width: 768px) {
   .introduce__boxflex .introduce__boxContent {
     text-align: center;
-  }
+  }  
 }
 .introduce__boxContent {
-  width: 100%;
+  width: 50%;
+  padding: 0 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-grow: 1;
   text-align: right;
 }
+
 @media (max-width: 768px) {
   .introduce__boxContent {
     text-align: center;
+    padding: 0;
   }
 }
 @media (max-width: 768px) {
-  .introduce__boxContent--center {
-    width: 100%;
+    .introduce__boxContent--center h2 {
+      margin-bottom: 6px;
+    }
   }
-}
-.introduce__boxContent--center h2 {
-  margin-bottom: 6px;
-}
 @media (max-width: 768px) {
   .introduce__boxContent--center h2 {
     margin-top: 20px;
@@ -517,7 +540,7 @@ footer {
   }
 }
 .introduce__boxImg {
-  width: 100%;
+  width: 50%;
   flex-grow: 1;
 }
 @media (max-width: 768px) {
@@ -655,27 +678,38 @@ footer {
   .kv_2 img {
     transform: translateX(4.8%) scale(0.6) translateY(-190px);
   }
+  .explain-position{
+    margin-top: -150px !important;
+  }
+  .explain {
+    margin-top: -30px;
+  }
+
+}
+.explain-title{
+  padding: 140px 0;
 }
 
 .explain {
-  padding: 140px 0;
+  /* padding: 40px 0; */
   display: flex;
-  align-items: flex-end;
+  /* align-items: flex-end; */
   justify-content: space-between;
-  margin-top: -30px;
+  /* margin-top: -30px; */
 }
 @media (max-width: 940px) {
-  .explain {
+  .explain-title ,.explain{
     flex-direction: column;
     text-align: center;
   }
 }
 @media (max-width: 768px) {
-  .explain {
-    margin-top: -270px;
+  .explain-title {
+    padding: 0 0 50px 0;
+    margin: 0px;
   }
 }
-.explain p {
+.explain p ,.explain-title p{
   line-height: 32px;
 }
 .explain__left {
@@ -715,12 +749,16 @@ footer {
   .explain__left p {
     text-align: left;
   }
+  .explain-title{
+    padding: 20px 0px 50px 0px;
+  }
 }
 .explain__right {
   width: 100%;
 }
 .explain__right p {
   text-align: left;
+  /* width: 100%; */
 }
 @media (max-width: 940px) {
   .explain__right p {
@@ -759,7 +797,7 @@ footer {
 }
 
 .contact {
-  padding: 80px 0 100px 0;
+  padding: 50px 0 100px 0;
   display: flex;
   align-items: end;
   justify-content: space-between;
@@ -768,15 +806,17 @@ footer {
   .contact {
     flex-direction: column;
   }
+  .contact h2,.contact .subtitle_text{
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .contact-wrap{
+    margin: -120px 0 0 0;
+  }
 }
 .contact__left {
   width: 100%;
-}
-@media (max-width: 940px) {
-  .contact__left {
-    text-align: center;
-    margin-bottom: 60px;
-  }
 }
 .contact__left h2 {
   margin-bottom: 6px;
@@ -790,9 +830,9 @@ footer {
   .contact__left img {
     margin-left: auto;
   }
-}
-.contact__left p {
-  text-align: left;
+  .contact__left{
+    text-align: left;
+  }
 }
 @media (max-width: 425px) {
   .contact__left p {
@@ -873,5 +913,89 @@ footer {
 @media (max-width: 768px) {
   .footerSet {
     height: 40px;
+  }
+}
+
+.link-hover-underline-simple {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-hover-underline-simple:hover {
+  text-decoration: underline;
+  text-decoration-color: #86a686; /* ⭐ 設定底線顏色 */
+  text-decoration-thickness: 1px; /* ⭐ (現代瀏覽器支援) 設定底線粗細 */
+}
+
+/* 上方文字置中 */
+.text-center-section {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+/* 圖片容器並排設定（桌機） */
+.image-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px auto 0 auto;
+  flex-wrap: wrap;
+}
+
+/* 圖片外框共通樣式 */
+.image-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* LOGO 圖大小 */
+.logo-img {
+  width: 300px;
+  height: 200px;
+}
+
+/* Floor plan 圖兩倍大 */
+.floor-img {
+  width: 700px;
+  height: 500px;
+}
+
+/* 圖片尺寸控制 */
+.image-box img {
+  max-width: 85%;
+  max-height: 85%;
+  display: block;
+}
+
+/* 手機版設定 */
+@media (max-width: 768px) {
+  .responsive-title {
+    line-height: 1.5; /*手機字行距 */
+  }
+
+  .image-row {
+    flex-direction: column; /*手機圖片上下排列 */
+    align-items: center;
+  }
+
+  .logo-img {
+    width: 200px;
+    height: 130px; /*LOGO 圖變小 */
+  }
+
+  .floor-img {
+    width: 90vw;       /*第二張圖放大*/
+    height: auto;
+    margin-top: 10px;
+  }
+
+  .floor-img img {
+    max-width: 100%;   /*滿版容器 */
+    height: auto;
+    display: block;
   }
 }
