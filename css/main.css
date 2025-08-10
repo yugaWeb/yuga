@@ -363,7 +363,8 @@ footer {
     padding: 100px 30px;
     margin: auto;
   }
-  .kv_mb img {
+  /* 配合 event 手機版的調整才添加 ----------------------------------------------------------------*/
+  /* .kv_mb img {
     width: 100%;
     max-width: 310px;
     -o-object-fit: cover;
@@ -377,7 +378,8 @@ footer {
   }
   .kv_mb img:nth-child(2) {
     transform: translateX(0px) translateY(0px);
-  }
+  } */
+  /* 配合 event 手機版的調整才添加 ----------------------------------------------------------------*/
 }
 
 .title {
