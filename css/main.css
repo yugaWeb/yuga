@@ -364,7 +364,7 @@ footer {
     margin: auto;
   }
   /* 配合 event 手機版的調整才添加 ----------------------------------------------------------------*/
-  /* .kv_mb img {
+  .kv_mb img {
     width: 100%;
     max-width: 310px;
     -o-object-fit: cover;
@@ -378,7 +378,7 @@ footer {
   }
   .kv_mb img:nth-child(2) {
     transform: translateX(0px) translateY(0px);
-  } */
+  }
   /* 配合 event 手機版的調整才添加 ----------------------------------------------------------------*/
 }
 
@@ -937,13 +937,15 @@ footer {
 }
 
 /* 圖片容器並排設定（桌機） */
+  .responsive-title {
+    line-height: 1.5;
+  }
 .image-row {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  /* gap: 10px; */
   margin: 20px auto 0 auto;
-  flex-wrap: wrap;
 }
 
 /* 圖片外框共通樣式 */
@@ -955,10 +957,10 @@ footer {
 }
 
 /* LOGO 圖大小 */
-.logo-img {
+/* .logo-img {
   width: 300px;
   height: 200px;
-}
+} */
 
 /* Floor plan 圖兩倍大 */
 .floor-img {
@@ -985,8 +987,8 @@ footer {
   }
 
   .logo-img {
-    width: 200px;
-    height: 130px; /*LOGO 圖變小 */
+    width: 300px;
+
   }
 
   .floor-img {
