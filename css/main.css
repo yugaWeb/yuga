@@ -410,7 +410,7 @@ footer {
 }
 @media (max-width: 768px) {
   .title__content p {
-    line-height: 20px;
+    line-height: 28px;
   }
 }
 @media (max-width: 768px) {
@@ -945,7 +945,7 @@ footer {
   justify-content: center;
   align-items: center;
   /* gap: 10px; */
-  margin: 20px auto 0 auto;
+  margin: 20px auto 20px auto;
 }
 
 /* 圖片外框共通樣式 */
